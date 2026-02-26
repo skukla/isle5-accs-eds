@@ -1,0 +1,154 @@
+.inventory-status {
+  background-color: var(--color-surface);
+  padding: var(--spacing-large);
+  border-radius: var(--shape-border-radius-3);
+  border: 1px solid var(--color-border);
+}
+
+/* Subtle/informational style for product detail page */
+.inventory-status-subtle {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* Hide h3 when Regional Availability has its own section title */
+.product-detail-section .inventory-status-subtle h3 {
+  display: none;
+}
+
+.inventory-status-subtle h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-small);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.inventory-status > div > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+}
+
+.inventory-status-subtle > div > div {
+  gap: 0;
+}
+
+.inventory-status-subtle .warehouse-list {
+  gap: 0;
+}
+
+.inventory-status h3 {
+  margin-bottom: var(--spacing-medium);
+  font-size: 1.25rem;
+  color: var(--color-text);
+}
+
+.warehouse-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.warehouse-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-3);
+  background-color: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--shape-border-radius-3);
+  transition: border-color var(--transition-fast);
+  gap: var(--spacing-medium);
+}
+
+.warehouse-item.priority {
+  border-color: var(--color-brand-500);
+  background-color: rgba(30, 58, 138, 0.05);
+}
+
+.warehouse-item:hover {
+  border-color: var(--color-brand-500);
+}
+
+/* Subtle warehouse items - less prominent, more informational */
+.inventory-status-subtle .warehouse-item {
+  padding: 0.75rem 0; /* Match specifications table padding */
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0;
+  gap: var(--spacing-medium);
+}
+
+.inventory-status-subtle .warehouse-item:last-child {
+  border-bottom: none;
+}
+
+.inventory-status-subtle .warehouse-item:hover {
+  border-color: var(--color-border);
+  background-color: transparent;
+}
+
+.inventory-status-subtle .warehouse-item.priority {
+  border-color: var(--color-border);
+  background-color: transparent;
+}
+
+.inventory-status-subtle .warehouse-name {
+  font-size: 1rem; /* Match other tab content - --type-body-1-default */
+  font-weight: 600; /* Match specifications labels */
+  color: var(--color-text-secondary); /* Match specifications labels */
+  flex: 0 0 40%; /* Match specifications label width */
+}
+
+.inventory-status-subtle .warehouse-quantity {
+  font-size: 1rem; /* Match other tab content - --type-body-1-default */
+  font-weight: 400; /* Match specifications values (regular weight) */
+  color: var(--color-text); /* Match specifications values (dark text) */
+  text-align: left; /* Align left like specifications values */
+  flex: 1;
+}
+
+.warehouse-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xsmall);
+}
+
+.warehouse-name {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.warehouse-location {
+  font: var(--type-body-2-default-font);
+  color: var(--color-text-secondary);
+}
+
+.warehouse-status {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.warehouse-quantity {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .warehouse-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-small);
+  }
+
+  .warehouse-status {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+

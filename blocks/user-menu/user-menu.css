@@ -1,0 +1,209 @@
+.user-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 300px;
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity var(--transition-base), 
+              visibility var(--transition-base),
+              transform var(--transition-base);
+  z-index: 10002; /* Above location menu (10000) and selector (10001) */
+  overflow: hidden;
+}
+
+.user-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Header Section */
+.user-menu-header {
+  padding: 1.5rem 1.5rem 1.25rem 1.5rem;
+  background: linear-gradient(to bottom, #EBF4FB 0%, white 100%);
+  border-bottom: 2px solid var(--color-brand-500);
+  position: relative;
+}
+
+.user-menu-title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+/* Greeting Section (Logged In) */
+.user-menu-greeting {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-brand-500) 0%, var(--color-brand-600) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(15, 91, 167, 0.25);
+  border: 2px solid white;
+}
+
+.user-initials {
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.user-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.user-name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+.user-company {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 0.25rem;
+  line-height: 1.3;
+}
+
+/* Content Section */
+.user-menu-content {
+  padding: 1rem 0.75rem;
+}
+
+/* Logged Out Actions */
+.user-menu-logged-out .user-menu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.user-menu-action {
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Logged In Links */
+.user-menu-logged-in .user-menu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.user-menu-link {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.75rem 1rem;
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.user-menu-link:hover {
+  background-color: #EBF4FB;
+  transform: translateX(2px);
+  box-shadow: 0 2px 4px rgba(15, 91, 167, 0.08);
+}
+
+.user-menu-link svg {
+  flex-shrink: 0;
+  color: var(--color-brand-500);
+  width: 20px;
+  height: 20px;
+}
+
+.user-menu-link span {
+  flex: 1;
+}
+
+.user-menu-logout {
+  color: var(--color-negative-500);
+  margin-top: 0.5rem;
+  border-radius: 8px;
+}
+
+.user-menu-logout:hover {
+  background-color: var(--color-negative-100);
+  border-color: transparent;
+  transform: translateX(2px);
+  box-shadow: 0 2px 4px rgba(220, 38, 38, 0.08);
+  border-radius: 8px;
+}
+
+.user-menu-logout svg {
+  color: var(--color-negative-500);
+}
+
+/* Tablet - right-aligned under Account button */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .user-menu {
+    right: 0; /* Right-align under Account */
+    left: auto;
+    width: 280px;
+  }
+}
+
+/* Mobile - left-aligned to fit in viewport */
+@media (max-width: 480px) {
+  .user-menu {
+    left: 0; /* Left-align to stay in viewport */
+    right: auto;
+    width: 240px;
+  }
+  
+  .user-menu-header {
+    padding: 1rem 0.875rem;
+  }
+  
+  .user-menu-content {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .user-menu-logged-out .user-menu-content {
+    padding: 1rem;
+  }
+  
+  .user-menu-link {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+

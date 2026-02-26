@@ -1,0 +1,64 @@
+.project-filter {
+  background-color: var(--color-surface);
+  padding: var(--spacing-medium);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-filter > div > div {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-medium);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.project-filter label {
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.project-filter select {
+  flex: 1;
+  max-width: 300px;
+  padding: var(--spacing-small) var(--spacing-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--shape-border-radius-3);
+  background-color: white;
+  font: var(--type-body-1-default-font);
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+.project-filter select:focus {
+  outline: none;
+  border-color: var(--color-brand-500);
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+}
+
+.filter-indicator {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-brand-500);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.filter-indicator.active {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .project-filter > div > div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-filter select {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+

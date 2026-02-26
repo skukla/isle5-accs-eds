@@ -1,0 +1,52 @@
+.tier-badge {
+  background: linear-gradient(135deg, var(--color-brand-500) 0%, var(--color-brand-600) 100%);
+  color: white;
+  padding: var(--spacing-medium) var(--spacing-large);
+  border-radius: var(--shape-border-radius-3);
+  box-shadow: var(--shape-shadow-2);
+}
+
+.tier-badge > div > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-medium);
+}
+
+.tier-label {
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.savings-indicator {
+  font: var(--type-body-1-default-font);
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.tier-badge.commercial-tier1 {
+  background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
+}
+
+.tier-badge.commercial-tier2 {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+}
+
+.tier-badge.residential-builder {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+}
+
+.tier-badge.pro-specialty {
+  background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+}
+
+@media (max-width: 768px) {
+  .tier-badge > div > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-small);
+  }
+}
+
