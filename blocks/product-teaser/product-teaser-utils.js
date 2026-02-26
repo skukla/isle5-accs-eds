@@ -2,8 +2,18 @@ import { getHeaders } from '@dropins/tools/lib/aem/configs.js';
 import {
   rootLink,
   commerceEndpointWithQueryParams,
-  encodeSkuForUrl,
 } from '../../scripts/commerce.js';
+
+/**
+ * Encodes a SKU for use in URLs.
+ * Replaces forward slashes with __ to prevent invalid URL paths.
+ * Defined locally so the block works in any storefront.
+ * @param {string} sku - The product SKU
+ * @returns {string} URL-safe encoded SKU
+ */
+export function encodeSkuForUrl(sku) {
+  return sku?.replace(/\//g, '__') || '';
+}
 
 export async function performCatalogServiceQuery(query, variables) {
   const headers = {
