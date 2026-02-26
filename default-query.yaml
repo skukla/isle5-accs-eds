@@ -1,0 +1,78 @@
+version: 1
+indices:
+  sitemap:
+    target: /sitemap.json
+    exclude:
+      - 'drafts/**'
+      - 'enrichment/**'
+      - 'fragments/**'
+      - 'products/**'
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: |
+          attribute(el, 'content')
+      image:
+        select: head > meta[name="image"], head > meta[property="og:image"]
+        value: |
+          attribute(el, 'content')
+      description:
+        select: head > meta[name="description"]
+        value: |
+          attribute(el, 'content')
+      ogdescription:
+        select: head > meta[property="og:description"]
+        value: |
+          attribute(el, 'content')
+      template:
+        select: head > meta[name="template"]
+        value: |
+          attribute(el, 'content')
+      robots:
+        select: head > meta[name="robots"]
+        value: |
+          attribute(el, 'content')
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
+      publicationdate:
+        select: head > meta[name="publication-date"]
+        value: |
+          attribute(el, 'content')
+      publishdate:
+        select: head > meta[property="article:published_time"]
+        value: |
+          attribute(el, 'content')
+      author:
+        select: head > meta[name="author"]
+        value: |
+          attribute(el, 'content')
+      authorimage:
+        select: head > meta[name="authorimage"]
+        value: |
+          attribute(el, 'content')
+      category:
+        select: head > meta[name="category"]
+        value: |
+          attribute(el, 'content')
+  enrichment:
+    target: /enrichment/enrichment.json
+    include:
+      - '**/enrichment/**'
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: |
+          attribute(el, 'content')
+      products:
+        select: head > meta[name="enrichment-products"]
+        values: |
+          match(attribute(el, 'content'), '([^,]+)')
+      categories:
+        select: head > meta[name="enrichment-categories"]
+        values: |
+          match(attribute(el, 'content'), '([^,]+)')
+      positions:
+        select: head > meta[name="enrichment-positions"]
+        values: |
+          match(attribute(el, 'content'), '([^,]+)')

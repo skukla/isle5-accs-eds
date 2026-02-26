@@ -1,0 +1,53 @@
+{
+  "definitions": [
+    {
+      "title": "Accordion",
+      "id": "accordion",
+      "plugins": {
+        "da": {
+          "unsafeHTML": "<div class=\"accordion\"><div><div><p>Question</p></div><div><p>Answer</p></div></div></div>"
+        }
+      }
+    },
+    {
+      "title": "Accordion Item",
+      "id": "accordion-item",
+      "plugins": {
+        "da": {
+          "unsafeHTML": "<div><div><p>Question</p></div><div><p>Answer</p></div></div>"
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "accordion-item",
+      "fields": [
+        {
+          "component": "richtext",
+          "valueType": "string",
+          "name": "div:nth-child(1)",
+          "value": "",
+          "label": "Summary",
+          "required": true
+        },
+        {
+          "component": "richtext",
+          "name": "div:nth-child(2)",
+          "value": "",
+          "label": "Text",
+          "valueType": "string",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "accordion",
+      "components": [
+        "accordion-item"
+      ]
+    }
+  ]
+}
