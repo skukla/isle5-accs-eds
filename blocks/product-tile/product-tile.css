@@ -1,0 +1,119 @@
+.product-tile {
+  background: white;
+  border: 2px solid var(--color-border);
+  border-radius: var(--shape-border-radius-3);
+  padding: var(--spacing-medium);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.product-tile:hover {
+  border-color: var(--color-brand-300);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.product-tile.selected {
+  border-color: var(--color-brand-500);
+  background: var(--color-surface);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.product-tile-image {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* Square aspect ratio */
+  background: var(--color-surface);
+  border-radius: var(--shape-border-radius-2);
+  overflow: hidden;
+  margin-bottom: var(--spacing-small);
+}
+
+.product-tile-image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.product-tile-inventory {
+  position: absolute;
+  top: var(--spacing-small);
+  right: var(--spacing-small);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background: white;
+  border-radius: var(--shape-border-radius-2);
+  font: var(--type-body-2-strong-font);
+}
+
+.product-tile-inventory .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.product-tile-inventory.in-stock {
+  color: var(--color-positive-600);
+}
+
+.product-tile-inventory.low-stock {
+  color: var(--color-warning-600);
+}
+
+.product-tile-inventory.out-of-stock {
+  color: var(--color-negative-600);
+}
+
+.product-tile-title {
+  font: var(--type-body-1-strong-font);
+  color: var(--color-text);
+  margin: 0 0 0.25rem;
+}
+
+.product-tile-sku {
+  font: var(--type-body-2-default-font);
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--spacing-small);
+}
+
+.product-tile-price {
+  font: var(--type-headline-2-font);
+  color: var(--color-brand-600);
+  margin-bottom: var(--spacing-small);
+}
+
+.product-tile-actions {
+  display: flex;
+  gap: var(--spacing-small);
+}
+
+.product-tile-select-indicator {
+  position: absolute;
+  top: var(--spacing-small);
+  left: var(--spacing-small);
+  width: 32px;
+  height: 32px;
+  background: var(--color-brand-500);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.product-tile.selected .product-tile-select-indicator {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.product-tile-select-indicator .icon {
+  width: 20px;
+  height: 20px;
+  color: white;
+}

@@ -1,0 +1,99 @@
+/* Wizard Sidebar - Project Summary
+ * Part of the Project Builder wizard system
+ * Additional wizard styles in blocks/wizard-container/wizard-container.css
+ */
+.wizard-sidebar {
+  position: sticky;
+  top: 2rem;
+}
+
+.sidebar-card {
+  background: var(--color-surface-hover);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-accent-500);
+  border-radius: var(--shape-border-radius-4);
+  padding: 1.5rem;
+  box-shadow: var(--shape-shadow-2);
+}
+
+.sidebar-title {
+  margin: 0 0 1rem;
+  font-size: 1.125rem;
+  color: var(--color-text);
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.sidebar-content {
+  font-size: var(--font-size-sm);
+}
+
+.sidebar-selections {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sidebar-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebar-selection-label {
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  font: var(--type-details-caption-1-font);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-selection-value {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.sidebar-empty {
+  color: var(--color-text-secondary);
+  font-style: italic;
+  margin: 0;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.sidebar-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 1rem 0;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .wizard-sidebar {
+    position: static;
+    order: -1;
+  }
+
+  .sidebar-card {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .wizard-sidebar {
+    display: none !important;
+  }
+}
+
+@media print and (min-width: 1200px) {
+  .wizard-sidebar {
+    position: static;
+    page-break-inside: avoid;
+  }
+
+  .sidebar-card {
+    border: 2px solid var(--color-border);
+  }
+}
+

@@ -1,0 +1,842 @@
+/* Cookware-Inspired Product Detail Page */
+
+/* Main Layout: Image + Sidebar (55/45) */
+.product-cookware-layout {
+  display: grid;
+  grid-template-columns: 1.22fr 1fr;  /* 55/45 split */
+  gap: 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem var(--section-padding-horizontal);
+  align-items: start;
+  position: relative; /* For absolute positioning of volume pricing popover */
+}
+
+/* Hero Image Section */
+.product-image-hero {
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); /* Match tab shadow */
+}
+
+.product-image-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Keep aspect ratio, fit within bounds */
+}
+
+/* Clean Sidebar (Cookware Style) */
+.product-sidebar-clean {
+  position: relative; /* Needed for absolutely positioned volume pricing modal on ultra-wide */
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* No gap - we'll control spacing with individual units */
+}
+
+/* Unit 1: Product Header - Title + SKU */
+.product-header-clean {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; /* Small gap between title and SKU */
+  margin-bottom: 3.5rem; /* More space below title/SKU - pushes price down */
+}
+
+/* Unit 2: Pricing Display */
+.pricing-clean-sidebar {
+  margin-bottom: 2.5rem; /* Space below pricing/pill */
+}
+
+/* Unit 3: Purchase Actions - Quantity + Add to Cart */
+.purchase-actions-clean {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Gap between quantity and button */
+  border-top: 1px solid var(--color-border); /* Separator line */
+  padding-top: 2.5rem; /* Space below separator */
+}
+
+/* Product Name - Standard H1 (Standardized to design system) */
+.product-name-clean {
+  font-size: 2rem;
+  font-weight: 700; /* Standardized: was 400, now matches --type-display-1-font */
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+/* SKU - Byline Style */
+.product-sku-clean {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+/* Pricing Display - Clean Vertical Sidebar */
+.pricing-clean-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.current-price-clean {
+  font-size: 3rem; /* Larger, more prominent */
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.tier-badge-clean {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.5rem 1rem; /* Slightly larger */
+  background-color: var(--color-secondary-500); /* Slate - informational */
+  color: white;
+  border-radius: var(--shape-border-radius-full);
+  font-size: 0.875rem; /* Larger text */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+/* Volume Pricing Tab - No heading, just table like other tabs */
+
+/* Full Volume Pricing Table (in Tab) */
+.volume-pricing-table-full {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.volume-pricing-table-full thead {
+  background: var(--color-surface);
+  border-bottom: 2px solid var(--color-border);
+}
+
+/* White variant: invert table header to white */
+body.white-variant .volume-pricing-table-full thead {
+  background: var(--color-background);
+}
+
+.volume-pricing-table-full thead th {
+  padding: 1rem;
+  text-align: left;
+  font-size: 0.875rem; /* --type-body-2-strong */
+  font-weight: 600;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+}
+
+.volume-pricing-table-full thead th:nth-child(2),
+.volume-pricing-table-full thead th:nth-child(3) {
+  text-align: center; /* Center headers to match data */
+}
+
+.volume-pricing-table-full tbody tr {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.volume-pricing-table-full tbody tr:last-child {
+  border-bottom: none;
+}
+
+.volume-pricing-table-full tbody td {
+  padding: 1.25rem 1rem;
+  font-size: 1.125rem; /* Larger for better readability */
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.volume-pricing-table-full tbody td:nth-child(2),
+.volume-pricing-table-full tbody td:nth-child(3) {
+  text-align: center; /* Center unit price and savings columns */
+}
+
+/* Active Tier - Highlighted Row */
+.volume-pricing-table-full tbody tr.active-tier {
+  background: rgba(30, 58, 138, 0.08);
+  border-left: 4px solid var(--color-brand-500);
+}
+
+.volume-pricing-table-full tbody tr.active-tier td {
+  color: var(--color-brand-500);
+  font-weight: 600; /* --type-body-1-strong */
+}
+
+.tier-savings {
+  font-size: 1.125rem; /* Explicitly match table body text size */
+  font-weight: 600;
+  color: var(--color-positive-600);
+  line-height: 1.5;
+}
+
+.tier-active-indicator {
+  font-size: 0.875rem;
+  color: var(--color-brand-500);
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+/* Quantity and Volume Pricing Row */
+/* Quantity Section - Clean Label */
+.quantity-section-clean {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Match gap with Add to Cart button spacing */
+  flex: 0 0 auto; /* Don't grow or shrink */
+  align-items: flex-start; /* Align everything to the left */
+}
+
+/* Quantity Label Row - Holds label and volume pricing link inline */
+.quantity-label-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+/* Volume Pricing Trigger - Styled as a text link inline with quantity label */
+.volume-pricing-trigger {
+  /* Remove all button styling */
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none;
+  
+  /* Link styling - dark gray for subtle appearance */
+  color: #333;
+  font-size: 0.875rem;
+  font-weight: 400; /* Regular weight like a link */
+  font-family: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.volume-pricing-trigger:hover {
+  opacity: 0.7;
+  background: none !important; /* Ensure no background on hover */
+}
+
+.volume-pricing-trigger:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  background: none !important;
+}
+
+.quantity-label-clean {
+  font-size: 0.9375rem; /* Match standard form labels */
+  font-weight: 600; /* Match standard form labels */
+  color: var(--color-text);
+  /* No uppercase, no letter-spacing - follows form-label pattern */
+}
+
+/* Quantity Controls */
+.quantity-section-clean .product-detail-qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: white; /* White = interactive element in our design system */
+  border: 2px solid var(--color-border); /* 2px border matches product tiles */
+  border-radius: var(--shape-border-radius-3); /* Match button border-radius */
+  padding: 0;
+  width: 180px;
+}
+
+.quantity-section-clean .product-detail-qty-btn {
+  width: 50px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: none;
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 1.5rem; /* Larger +/- symbols */
+  transition: all var(--transition-fast);
+}
+
+.quantity-section-clean .product-detail-qty-btn:first-child {
+  border-radius: var(--shape-border-radius-3) 0 0 var(--shape-border-radius-3); /* Rounded left */
+}
+
+.quantity-section-clean .product-detail-qty-btn:last-child {
+  border-radius: 0 var(--shape-border-radius-3) var(--shape-border-radius-3) 0; /* Rounded right */
+}
+
+.quantity-section-clean .product-detail-qty-btn:hover {
+  background: var(--color-brand-500);
+  color: white;
+}
+
+.quantity-section-clean .product-detail-qty-btn:active {
+  transform: scale(0.95);
+}
+
+.quantity-section-clean .product-detail-quantity-input {
+  width: 80px;
+  height: 48px;
+  border: none;
+  border-left: 2px solid var(--color-border);
+  border-right: 2px solid var(--color-border);
+  text-align: center;
+  font-size: 1.125rem; /* Larger number, proportional to buttons */
+  font-weight: 600;
+  background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%); /* Very subtle gradient - recessed feel */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inset shadow reinforces depth */
+  color: var(--color-text);
+}
+
+/* Remove spinner */
+.quantity-section-clean .product-detail-quantity-input::-webkit-inner-spin-button,
+.quantity-section-clean .product-detail-quantity-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Add to Cart Button - Uses standard button hierarchy */
+.add-to-cart-clean {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 180px; /* Match quantity controls width */
+  justify-content: center;
+}
+
+/* Volume Pricing Table - Clean & Minimal */
+.volume-pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.volume-pricing-table tbody tr {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.volume-pricing-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.volume-pricing-table tbody td {
+  padding: 0.625rem 0;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.volume-pricing-table tbody td:first-child {
+  padding-right: 1.5rem; /* Space between columns */
+  white-space: nowrap;
+}
+
+.volume-pricing-table tbody td:last-child {
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: right;
+}
+
+/* Active Tier - Highlighted Row */
+.volume-pricing-table tbody tr.active-tier td {
+  color: var(--color-brand-500);
+  font-weight: 600;
+}
+
+/* Removed duplicate .tier-savings rule - using single definition above */
+
+.tier-active-indicator {
+  font-size: 0.75rem;
+  color: var(--color-brand-500);
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+/* Product Content & Tabs */
+.product-detail-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem var(--section-padding-horizontal);
+  background: var(--color-surface);
+}
+
+/* White variant: invert to white background */
+body.white-variant .product-detail-content {
+  background: var(--color-background);
+}
+
+/* Mobile Tab Select - hidden by default, shown on mobile */
+.product-tabs-mobile {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.product-tabs-mobile-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.product-tab-select {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background: white;
+  border: 2px solid var(--color-border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color var(--transition-base);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%23333' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 3rem;
+}
+
+/* White variant: adjust select background */
+body.white-variant .product-tab-select {
+  background-color: var(--color-surface);
+}
+
+.product-tab-select:focus {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+  border-color: var(--color-brand-500);
+}
+
+.product-tab-select option {
+  padding: 0.5rem;
+}
+
+/* Desktop Tabs - shown by default */
+.product-tabs {
+  display: flex;
+  gap: 2rem;
+  border-bottom: 2px solid var(--color-border);
+  margin-bottom: 2rem;
+}
+
+.product-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  margin-bottom: -2px;
+  white-space: nowrap;
+}
+
+.product-tab:hover {
+  color: var(--color-text);
+}
+
+.product-tab.active {
+  color: var(--color-brand-500);
+  border-bottom-color: var(--color-brand-500);
+}
+
+/* Hide "Volume " prefix on smaller screens to save space */
+@media (max-width: 640px) {
+  .tab-label-long {
+    display: none;
+  }
+}
+
+.product-tab-panels {
+  min-height: 300px;
+}
+
+.product-tab-panel {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* White variant: invert tab panels to gray */
+body.white-variant .product-tab-panel {
+  background: var(--color-surface);
+}
+
+.product-tab-panel[hidden] {
+  display: none;
+}
+
+/* Product Description */
+.product-detail-description-text {
+  font-size: 1rem; /* Matches --type-body-1-default */
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* Product Specs Table */
+.product-specs-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-specs-table tbody tr {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.product-specs-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.product-specs-table tbody td {
+  padding: 0.75rem 0;
+  font-size: 1rem; /* Matches --type-body-1-default */
+  color: var(--color-text);
+}
+
+.product-specs-table tbody td:first-child {
+  font-weight: 600; /* Enhanced for better distinction from values */
+  color: var(--color-text-secondary);
+  width: 40%;
+}
+
+/* Loading Overlay */
+.pdp-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.section-pdp {
+  background: var(--color-surface);
+}
+
+/* White variant: invert section to white */
+body.white-variant .section-pdp {
+  background: var(--color-background);
+}
+
+.volume-pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* White variant: invert volume pricing table to gray */
+body.white-variant .volume-pricing-table {
+  background: var(--color-surface);
+}
+
+.volume-pricing-table thead th {
+  display: none; /* Hide headers for compact display */
+}
+
+.volume-pricing-table tbody td {
+  padding: 0.625rem 0;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: 0.8125rem;
+}
+
+.volume-pricing-table tbody td:first-child {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.volume-pricing-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.volume-pricing-table tbody tr.active-tier td {
+  color: var(--color-brand-500);
+  font-weight: 600;
+}
+
+.volume-pricing-table tbody tr.active-tier td:first-child {
+  position: relative;
+}
+
+.volume-pricing-table tbody tr.active-tier td:first-child::before {
+  content: '→';
+  position: absolute;
+  left: -1rem;
+  color: var(--color-brand-500);
+}
+
+/* Volume Pricing Popover - Responsive positioning */
+
+/* Desktop (>2066px): Popover to the right of sidebar */
+@media (min-width: 2067px) {
+  .volume-pricing-modal {
+    position: absolute;
+    top: 24%;
+    left: 100%; /* Start at the right edge of sidebar */
+    margin-left: -12rem; /* Negative margin to overlap slightly into whitespace */
+    width: 500px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.15s ease-in-out;
+    overflow: visible; /* Allow arrow to be visible */
+  }
+  
+  .volume-pricing-modal[style*="display: block"] {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  
+  /* Arrow pointing left toward the sidebar */
+  .volume-pricing-modal-content::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 3rem;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-left: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    transform: rotate(45deg);
+    z-index: 1;
+  }
+}
+
+/* Mobile/Tablet: Hide modal, use tab instead */
+@media (max-width: 2066px) {
+  .volume-pricing-modal {
+    display: none !important; /* Always hidden on mobile/tablet */
+  }
+}
+
+.volume-pricing-modal-backdrop {
+  /* No backdrop by default - only shown in mid-range (1200px-2066px) */
+  display: none;
+}
+
+.volume-pricing-modal-content {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* White variant: invert modal to gray */
+body.white-variant .volume-pricing-modal-content {
+  background: var(--color-surface);
+}
+
+/* Arrow pointing left toward the sidebar - desktop only */
+.volume-pricing-modal-content::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 3rem;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-left: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+/* White variant: invert arrow to gray */
+body.white-variant .volume-pricing-modal-content::before {
+  background: var(--color-surface);
+}
+
+/* Hide arrow on mobile/tablet where it's inline */
+@media (max-width: 1199px) {
+  .volume-pricing-modal-content::before {
+    display: none;
+  }
+}
+
+.volume-pricing-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.volume-pricing-modal-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.volume-pricing-modal-close {
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all var(--transition-base);
+}
+
+.volume-pricing-modal-close:hover {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.volume-pricing-modal-body {
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* Modal Volume Pricing Table */
+.volume-pricing-table-modal {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.volume-pricing-table-modal thead {
+  background: var(--color-surface);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.volume-pricing-table-modal thead th {
+  padding: 1rem;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+}
+
+.volume-pricing-table-modal thead th:nth-child(2),
+.volume-pricing-table-modal thead th:nth-child(3) {
+  text-align: center;
+}
+
+.volume-pricing-table-modal tbody tr {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.volume-pricing-table-modal tbody tr:last-child {
+  border-bottom: none;
+}
+
+.volume-pricing-table-modal tbody td {
+  padding: 1.25rem 1rem;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.volume-pricing-table-modal tbody td:nth-child(2),
+.volume-pricing-table-modal tbody td:nth-child(3) {
+  text-align: center;
+}
+
+/* Active Tier in Modal */
+.volume-pricing-table-modal tbody tr.active-tier {
+  background: rgba(30, 58, 138, 0.08);
+  border-left: 4px solid var(--color-brand-500);
+}
+
+.volume-pricing-table-modal tbody tr.active-tier td {
+  color: var(--color-brand-500);
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .product-cookware-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .product-sidebar-clean {
+    position: relative;
+    top: 0;
+  }
+
+  .product-name-clean {
+    font-size: 1.75rem;
+  }
+
+  .current-price-clean {
+    font-size: 2rem;
+  }
+
+  .pricing-clean-sidebar {
+    padding: 1.5rem;
+  }
+
+  .current-price-clean {
+    font-size: 2.25rem;
+  }
+
+  .volume-pricing-tab-content {
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile: Show select, hide tabs */
+@media (max-width: 480px) {
+  /* Show mobile select dropdown */
+  .product-tabs-mobile {
+    display: flex;
+  }
+  
+  /* Hide desktop tabs */
+  .product-tabs {
+    display: none;
+  }
+  
+  /* Adjust tab panel padding for mobile */
+  .product-tab-panel {
+    padding: 1.5rem;
+  }
+  
+  /* Adjust content section padding */
+  .product-detail-content {
+    padding: 2rem var(--section-padding-horizontal);
+  }
+  
+  /* Prevent table header wrapping */
+  .volume-pricing-table-full thead th,
+  .volume-pricing-table-modal thead th {
+    white-space: nowrap;
+  }
+}
+

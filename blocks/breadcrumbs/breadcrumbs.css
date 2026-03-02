@@ -1,0 +1,33 @@
+/* Breadcrumbs Block */
+.breadcrumbs {
+  background: var(--color-background); /* White background for separation */
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-small) 0;
+}
+
+/* Gray breadcrumbs for white-variant pages (inverted contrast) */
+body.white-variant .breadcrumbs {
+  background: var(--color-surface); /* Gray background for separation on white pages */
+}
+
+.breadcrumbs nav {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--section-padding-horizontal);
+  font: var(--type-body-2-default-font);
+  color: var(--color-text-secondary);
+}
+
+.breadcrumbs a {
+  color: var(--color-brand-500);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs span {
+  margin: 0 var(--spacing-small);
+}
+
