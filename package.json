@@ -56,6 +56,7 @@
     "@dropins/storefront-product-discovery": "~3.0.0",
     "@dropins/storefront-recommendations": "~3.0.0",
     "@dropins/storefront-wishlist": "~3.0.0",
+    "@demo-inspector/sdk": "github:skukla/demo-inspector-sdk",
     "@dropins/tools": "~1.6.0"
   }
 }

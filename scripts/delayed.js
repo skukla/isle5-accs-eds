@@ -64,4 +64,10 @@ if (document.prerendering) {
   initAnalytics();
 }
 
-// add delayed functionality here
+// Demo Inspector (tags blocks for Chrome extension detection)
+try {
+  const { initInspector } = await import('./demo-inspector-init.js');
+  initInspector();
+} catch {
+  // SDK not installed — skip silently
+}
