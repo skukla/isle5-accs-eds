@@ -1,0 +1,38 @@
+<div class="mini-cart" id="mini-cart">
+  <div class="mini-cart-header">
+    <div class="mini-cart-header-content">
+      <h3 class="mini-cart-title">Shopping Cart</h3>
+      <span class="mini-cart-item-count">0 items</span>
+    </div>
+    <button class="mini-cart-close" id="mini-cart-close" aria-label="Close cart">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 6 6 18"/>
+        <path d="m6 6 12 12"/>
+      </svg>
+    </button>
+  </div>
+  <div class="mini-cart-items" id="mini-cart-items">
+    <!-- Cart items will be populated here -->
+  </div>
+  <div class="mini-cart-empty hidden" id="mini-cart-empty">
+    <svg class="mini-cart-empty-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="8" cy="21" r="1"/>
+      <circle cx="19" cy="21" r="1"/>
+      <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+    </svg>
+    <p class="mini-cart-empty-title">Your cart is empty</p>
+    <p class="mini-cart-empty-text">Browse our catalog to find products</p>
+    <a href="catalog" class="mini-cart-empty-cta">Browse Catalog</a>
+  </div>
+  <div class="mini-cart-footer">
+    <div class="mini-cart-subtotal">
+      <span class="mini-cart-subtotal-label">Subtotal</span>
+      <span class="mini-cart-total">$0.00</span>
+    </div>
+    <div class="mini-cart-actions">
+      <a href="pages/cart.html" class="btn btn-secondary btn-sm">View Cart</a>
+      <a href="pages/cart.html" class="btn btn-cta btn-sm">Checkout</a>
+    </div>
+  </div>
+</div>
+
