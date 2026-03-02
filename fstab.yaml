@@ -1,4 +1,7 @@
 mountpoints:
   /:
-    url: https://content.da.live/skukla/isle5-accs-eds/
+    url: https://content.da.live/stephen-garner-adobe/isle5/
     type: markup
+
+folders:
+  /products/: /products/default
