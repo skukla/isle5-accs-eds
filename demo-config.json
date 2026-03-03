@@ -1,59 +1,53 @@
 {
   "public": {
     "default": {
-      "commerce-core-endpoint": "https://edge-sandbox-graph.adobe.io/api/ec2be1c1-9c5e-480a-be45-18ddc9a1e485/graphql",
-      "commerce-endpoint": "https://edge-sandbox-graph.adobe.io/api/ec2be1c1-9c5e-480a-be45-18ddc9a1e485/graphql",
+      "commerce-core-endpoint": "https://edge-sandbox-graph.adobe.io/api/a8101baa-b235-4d8e-88c4-734e5f054b56/graphql",
+      "commerce-endpoint": "https://edge-sandbox-graph.adobe.io/api/a8101baa-b235-4d8e-88c4-734e5f054b56/graphql",
       "commerce-assets-enabled": true,
+      "commerce-assets-quality": 95,
       "headers": {
         "all": {
-          "Store": "default"
+          "Store": "citisignal_us"
         },
         "cs": {
           "Magento-Customer-Group": "b6589fc6ab0dc82cf12099d1c2d40ab994e8410c",
-          "Magento-Store-Code": "main_website_store",
-          "Magento-Store-View-Code": "default",
-          "Magento-Website-Code": "base"
+          "Magento-Store-Code": "citisignal_store",
+          "Magento-Store-View-Code": "citisignal_us",
+          "Magento-Website-Code": "citisignal",
+          "x-api-key": "4dfa19c9fe6f4cccade55cc5b3da94f7",
+          "Magento-Environment-Id": "G8b9X9oVp44YqwE4mw21H4"
         }
       },
       "analytics": {
+        "aep-ims-org-id": null,
+        "aep-datastream-id": null,
         "base-currency-code": "USD",
         "environment": "Production",
         "store-id": 1,
         "store-name": "Main Website Store",
-        "store-url": "https://main--isle5-accs-eds--skukla.aem.live/",
+        "store-url": "https://main--accs-citisignal--demo-system-stores.aem.live/",
         "store-view-id": 1,
         "store-view-name": "Default Store View",
         "website-id": 1,
         "website-name": "Main Website"
+      },
+      "plugins": {
+        "picker": {
+          "rootCategory": "YOUR_ROOT_CATEGORY_ID"
+        }
+      }
+    },
+    "/citisignal-fr/": {
+      "headers": {
+        "all": {
+          "Store": "citisignal_fr"
+        },
+        "cs": {
+          "Magento-Store-Code": "citisignal_store",
+          "Magento-Website-Code": "citisignal",
+          "Magento-Store-View-Code": "citisignal_fr"
+        }
       }
     }
-  },
-  "robots": {
-    "txt": "User-agent: *\nAllow: /\nDisallow: /drafts/\nDisallow: /enrichment/\nDisallow: /tools/\nDisallow: /plugins/experimentation/\n\nSitemap: https://main--isle5-accs-eds--skukla.aem.live/sitemap-index.xml"
-  },
-  "sidekick": {
-    "project": "Demo Builder Project",
-    "plugins": [
-      {
-        "id": "cif",
-        "title": "Commerce",
-        "environments": [
-          "edit"
-        ],
-        "url": "https://main--isle5-accs-eds--skukla.aem.live/tools/picker/dist/index.html",
-        "isPalette": true,
-        "paletteRect": "top: 54px; left: 5px; bottom: 5px; width: 300px; height: calc(100% - 59px); border-radius: var(--hlx-sk-button-border-radius); overflow: hidden; resize: horizontal;"
-      },
-      {
-        "id": "personalisation",
-        "title": "Personalisation",
-        "environments": [
-          "edit"
-        ],
-        "url": "https://main--isle5-accs-eds--skukla.aem.live/tools/segments/dist/index.html",
-        "isPalette": true,
-        "paletteRect": "top: 54px; left: 5px; bottom: 5px; width: 300px; height: calc(100% - 59px); border-radius: var(--hlx-sk-button-border-radius); overflow: hidden; resize: horizontal;"
-      }
-    ]
   }
 }

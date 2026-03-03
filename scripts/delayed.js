@@ -63,11 +63,3 @@ if (document.prerendering) {
 } else {
   initAnalytics();
 }
-
-// Demo Inspector (tags blocks for Chrome extension detection)
-try {
-  const { initInspector } = await import('./demo-inspector-init.js');
-  initInspector();
-} catch {
-  // SDK not installed — skip silently
-}

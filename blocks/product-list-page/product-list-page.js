@@ -11,9 +11,9 @@ import { WishlistToggle } from '@dropins/storefront-wishlist/containers/Wishlist
 import { render as wishlistRender } from '@dropins/storefront-wishlist/render.js';
 // Cart Dropin
 import * as cartApi from '@dropins/storefront-cart/api.js';
-import { tryRenderAemAssetsImage } from '@dropins/tools/lib/aem/assets.js';
-// Event Bus
 import { events } from '@dropins/tools/event-bus.js';
+import { tryRenderAemAssetsImage } from '../../scripts/aem-assets.js';
+// Event Bus
 // AEM
 import { readBlockConfig } from '../../scripts/aem.js';
 import { fetchPlaceholders, getProductLink } from '../../scripts/commerce.js';

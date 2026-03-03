@@ -129,6 +129,7 @@
       "id": "section",
       "components": [
         "hero",
+        "hero-v2",
         "accordion",
         "cards",
         "carousel",
@@ -137,7 +138,11 @@
         "image",
         "text",
         "targeted-block",
-        "product-recommendations"
+        "product-recommendations",
+        "product-teaser",
+        "quote",
+        "tabs",
+        "video"
       ]
     }
   ]

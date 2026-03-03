@@ -1,6 +1,6 @@
 import { render as orderRenderer } from '@dropins/storefront-order/render.js';
 import { CreateReturn } from '@dropins/storefront-order/containers/CreateReturn.js';
-import { tryRenderAemAssetsImage } from '@dropins/tools/lib/aem/assets.js';
+import { tryRenderAemAssetsImage } from '../../scripts/aem-assets.js';
 import {
   ORDER_DETAILS_PATH,
   CUSTOMER_ORDER_DETAILS_PATH,

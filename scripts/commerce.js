@@ -623,13 +623,25 @@ export async function commerceEndpointWithQueryParams() {
 }
 
 /**
+ * Encodes a SKU for use in URLs.
+ * Replaces forward slashes with __ to prevent invalid URL paths.
+ * @param {string} sku - The product SKU
+ * @returns {string} URL-safe encoded SKU
+ */
+export function encodeSkuForUrl(sku) {
+  return sku?.replace(/\//g, '__') || '';
+}
+
+/**
  * Extracts the SKU from the current URL path.
  * @returns {string|null} The SKU extracted from the URL, or null if not found
  */
 function getSkuFromUrl() {
   const path = window.location.pathname;
-  const result = path.match(/\/products\/[\w|-]+\/([\w|-]+)$/);
-  return result?.[1];
+  // Match SKU after /products/{urlKey}/ - allow __ for encoded slashes
+  const result = path.match(/\/products\/[^/]+\/([^/]+)$/);
+  // Convert __ back to / to restore original SKU for Commerce API
+  return result?.[1] ? result[1].replace(/__/g, '/') : null;
 }
 
 /**
@@ -673,8 +685,10 @@ export function getProductLink(urlKey, sku) {
     console.warn('getProductLink: sku is missing or empty', { urlKey, sku });
   }
   const sanitizedUrlKey = urlKey ? sanitizeName(urlKey) : '';
-  const sanitizedSku = sku ? sanitizeName(sku) : '';
-  return rootLink(`/products/${sanitizedUrlKey}/${sanitizedSku}`);
+  // Encode slashes as __ (double underscore) to preserve SKU structure in URL
+  // getSkuFromUrl() decodes __ back to / when extracting SKU
+  const encodedSku = sku ? sku.replace(/\//g, '__') : '';
+  return rootLink(`/products/${sanitizedUrlKey}/${encodedSku}`);
 }
 
 /**

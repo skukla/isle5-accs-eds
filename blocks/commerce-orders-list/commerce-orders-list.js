@@ -1,6 +1,6 @@
 import { render as accountRenderer } from '@dropins/storefront-account/render.js';
 import { OrdersList } from '@dropins/storefront-account/containers/OrdersList.js';
-import { tryRenderAemAssetsImage } from '@dropins/tools/lib/aem/assets.js';
+import { tryRenderAemAssetsImage } from '../../scripts/aem-assets.js';
 import { readBlockConfig } from '../../scripts/aem.js';
 import {
   checkIsAuthenticated,

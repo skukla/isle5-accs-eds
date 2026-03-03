@@ -3,7 +3,6 @@
 // Tools and initializers
 import { Button, provider as UI } from '@dropins/tools/components.js';
 import { initializers } from '@dropins/tools/initializer.js';
-import { tryRenderAemAssetsImage } from '@dropins/tools/lib/aem/assets.js';
 import { events } from '@dropins/tools/event-bus.js';
 
 // Order Dropin API
@@ -27,6 +26,7 @@ import GiftOptions from '@dropins/storefront-cart/containers/GiftOptions.js';
 // Auth (for sign-up modal in header)
 import { render as AuthProvider } from '@dropins/storefront-auth/render.js';
 import SignUp from '@dropins/storefront-auth/containers/SignUp.js';
+import { tryRenderAemAssetsImage } from '../../scripts/aem-assets.js';
 
 // Commerce helpers
 import {

@@ -2,7 +2,7 @@ import { render as orderRenderer } from '@dropins/storefront-order/render.js';
 import { OrderProductList } from '@dropins/storefront-order/containers/OrderProductList.js';
 import GiftOptions from '@dropins/storefront-cart/containers/GiftOptions.js';
 import { render as CartProvider } from '@dropins/storefront-cart/render.js';
-import { tryRenderAemAssetsImage } from '@dropins/tools/lib/aem/assets.js';
+import { tryRenderAemAssetsImage } from '../../scripts/aem-assets.js';
 
 // Initialize
 import '../../scripts/initializers/order.js';

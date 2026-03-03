@@ -97,6 +97,32 @@
     display: none;
 }
 
+/* Fix stretchy images in product discovery */
+.block.product-list-page img {
+    height: auto !important;
+    aspect-ratio: 1;
+    object-fit: contain;
+}
+
+.block.product-list-page picture {
+    display: block;
+    aspect-ratio: 1;
+}
+
+/* Product image wrapper border and hover effects */
+.block.product-list-page .dropin-product-item-card__image {
+    border: 1px solid var(--color-neutral-300);
+    border-radius: var(--shape-border-radius-2);
+    padding: var(--spacing-xsmall);
+    transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.block.product-list-page .dropin-product-item-card__image:hover,
+.block.product-list-page .dropin-product-item-card__image:focus-within {
+    border-color: var(--color-brand-500);
+    box-shadow: 0 0 0 2px color-mix(in oklab, var(--color-brand-500) 20%, transparent);
+}
+
 /* Media Queries */
 @media only screen and (min-width: 768px) {
     .block.product-list-page .search__wrapper {
