@@ -375,6 +375,137 @@
               ]
             }
           }
+        },
+        {
+          "title": "Blog Tiles",
+          "id": "blog-tiles",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"blog-tiles\"><div><div><p>Category</p></div></div></div>"
+            }
+          }
+        },
+        {
+          "title": "Blog Post",
+          "id": "blog-post",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"blog-post\"><div><div><p>Layout</p></div></div></div>"
+            }
+          }
+        },
+        {
+          "title": "Circle Carousel",
+          "id": "circle-carousel",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"circle-carousel\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div><div><p></p></div></div></div>",
+              "behaviour": "columns"
+            }
+          },
+          "model": "circle-carousel",
+          "filter": "circle-carousel"
+        },
+        {
+          "title": "Circle Carousel Item",
+          "id": "circle-carousel-item",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div><div><p></p></div></div>",
+              "behaviour": "columns-row"
+            }
+          }
+        },
+        {
+          "title": "Circle Carousel Cell",
+          "id": "circle-carousel-cell",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div></div>",
+              "behaviour": "columns-cell"
+            }
+          }
+        },
+        {
+          "title": "Hero CTA",
+          "id": "hero-cta",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"hero-cta\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div><div><h1></h1><p></p></div></div></div>"
+            }
+          }
+        },
+        {
+          "title": "Newsletter",
+          "id": "newsletter",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"newsletter\"><div><div><p>Heading</p></div></div><div><div><p>Subheading</p></div></div></div>"
+            }
+          },
+          "model": "newsletter"
+        },
+        {
+          "title": "Promotional Hero",
+          "id": "promotional-hero",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"promotional-hero\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div><div><h2></h2><p></p></div><div><p></p></div></div></div>"
+            }
+          }
+        },
+        {
+          "title": "Search Bar",
+          "id": "search-bar",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"search-bar\"><div><div><p>Search Products</p></div></div></div>",
+              "behaviour": "columns"
+            }
+          },
+          "model": "search-bar",
+          "filter": "search-bar"
+        },
+        {
+          "title": "Store Locator",
+          "id": "store-locator",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"store-locator\"><div><div><p>Store Name</p></div><div><p>Address</p></div><div><p>City</p></div><div><p>State</p></div><div><p>Zip</p></div><div><p>Phone</p></div></div></div>",
+              "behaviour": "columns"
+            }
+          },
+          "model": "store-locator",
+          "filter": "store-locator"
+        },
+        {
+          "title": "Store Locator Item",
+          "id": "store-locator-item",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div><div><p>Store Name</p></div><div><p>Address</p></div><div><p>City</p></div><div><p>State</p></div><div><p>Zip</p></div><div><p>Phone</p></div></div>",
+              "behaviour": "columns-row"
+            }
+          }
+        },
+        {
+          "title": "Store Locator Cell",
+          "id": "store-locator-cell",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div></div>",
+              "behaviour": "columns-cell"
+            }
+          }
+        },
+        {
+          "title": "Top Banner",
+          "id": "top-banner",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"top-banner\"><div><div><p>Message</p></div><div><p></p></div><div><p></p></div><div><p></p></div></div></div>"
+            }
+          }
         }
       ]
     },
