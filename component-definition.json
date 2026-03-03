@@ -56,8 +56,7 @@
             "da": {
               "name": "accordion",
               "rows": 1,
-              "columns": 2,
-              "unsafeHTML": "<div class=\"accordion\"><div><div><h3>FAQ Question</h3></div><div><p>Answer content goes here.</p></div></div><div><div><h3>Another Question</h3></div><div><p>More details here.</p></div></div></div>"
+              "columns": 2
             }
           }
         },
@@ -91,8 +90,7 @@
           "plugins": {
             "da": {
               "rows": 1,
-              "columns": 2,
-              "unsafeHTML": "<div class=\"cards\"><div><div><picture><img src=\"/content/dam/demo/placeholder.png\" alt=\"Card image\"></picture></div><div><h3>Card Title</h3><p>Card description text.</p></div></div></div>"
+              "columns": 2
             }
           }
         },
@@ -168,8 +166,7 @@
               "name": "columns",
               "rows": 1,
               "columns": 2,
-              "behaviour": "columns",
-              "unsafeHTML": "<div class=\"columns\"><div><div><p>Column 1 content</p></div><div><p>Column 2 content</p></div></div></div>"
+              "behaviour": "columns"
             }
           }
         },
@@ -192,7 +189,18 @@
           "filter": "columns-cell",
           "plugins": {
             "da": {
+              "unsafeHTML": "<div></div>",
               "behaviour": "columns-cell"
+            }
+          }
+        },
+        {
+          "title": "Enrichment",
+          "id": "enrichment",
+          "model": "enrichment",
+          "plugins": {
+            "da": {
+              "type": "key-value-block"
             }
           }
         },
@@ -238,104 +246,6 @@
                   "name": "text",
                   "selector": "div>div>h1"
                 }
-              ],
-              "unsafeHTML": "<div class=\"hero\"><div><div><picture><img src=\"/content/dam/demo/placeholder.png\" alt=\"Hero image\"></picture></div><div><h1>Hero Heading</h1><p>Hero description text.</p></div></div></div>"
-            }
-          }
-        },
-        {
-          "title": "Hero V2",
-          "id": "hero-v2",
-          "model": "hero-v2",
-          "plugins": {
-            "da": {
-              "rows": 1,
-              "columns": 1,
-              "fields": [
-                {
-                  "name": "image",
-                  "selector": "div:nth-child(1)>div:nth-child(1)>picture:nth-child(1)>img[src]"
-                },
-                {
-                  "name": "imageAlt",
-                  "selector": "div:nth-child(1)>div:nth-child(1)>picture:nth-child(1)>img[alt]"
-                },
-                {
-                  "name": "title",
-                  "selector": "div:nth-child(1)>div:nth-child(1)>h2:nth-child(2)"
-                },
-                {
-                  "name": "subtitle",
-                  "selector": "div:nth-child(1)>div:nth-child(1)>h3:nth-child(3)"
-                },
-                {
-                  "name": "description",
-                  "selector": "div:nth-child(1)>div:nth-child(1)>p:nth-child(4)"
-                },
-                {
-                  "name": "ctaLabel",
-                  "selector": "div:nth-child(1)>div:nth-child(1)>p:nth-child(5)>a:nth-child(1)"
-                },
-                {
-                  "name": "ctaUrl",
-                  "selector": "div:nth-child(1)>div:nth-child(1)>p:nth-child(5)>a:nth-child(1)[href]"
-                }
-              ]
-            }
-          }
-        },
-        {
-          "title": "Quote",
-          "id": "quote",
-          "model": "quote",
-          "plugins": {
-            "da": {
-              "name": "quote",
-              "rows": 1,
-              "columns": 1,
-              "fields": [
-                {
-                  "name": "quote",
-                  "selector": "div:nth-child(1)>div:nth-child(1)>p:nth-child(1)"
-                },
-                {
-                  "name": "author",
-                  "selector": "div:nth-child(2)>div:nth-child(1)>p:nth-child(1)"
-                }
-              ],
-              "unsafeHTML": "<div class=\"quote\"><div><div><p>Design is not just what it looks like. Design is how it works.</p></div><div><p>Steve Jobs</p></div></div></div>"
-            }
-          }
-        },
-        {
-          "title": "Tabs",
-          "id": "tabs",
-          "model": "tabs",
-          "filter": "tabs",
-          "plugins": {
-            "da": {
-              "columns": 1,
-              "rows": 2
-            }
-          }
-        },
-        {
-          "title": "Tabs Item",
-          "id": "tabs-item",
-          "model": "tabs-item",
-          "plugins": {
-            "da": {
-              "columns": 0,
-              "rows": 2,
-              "fields": [
-                {
-                  "name": "name",
-                  "selector": "div:nth-child(1)>p:nth-child(1)"
-                },
-                {
-                  "name": "content",
-                  "selector": "div:nth-child(2)"
-                }
               ]
             }
           }
@@ -351,159 +261,292 @@
           }
         },
         {
-          "title": "Video",
-          "id": "video",
-          "model": "video",
+          "title": "Commerce Account Header",
+          "id": "commerce-account-header",
+          "model": "commerce-account-header",
           "plugins": {
             "da": {
-              "name": "video",
+              "type": "key-value-block"
+            }
+          }
+        },
+        {
+          "title": "Commerce Account Sidebar",
+          "id": "commerce-account-sidebar",
+          "model": "commerce-account-sidebar",
+          "plugins": {
+            "da": {
               "rows": 1,
-              "columns": 1,
-              "fields": [
-                {
-                  "name": "videoUrl",
-                  "selector": "div:nth-child(1)>div:nth-child(1)>p:nth-child(1)>a:nth-child(1)[href]"
-                },
-                {
-                  "name": "videoUrlText",
-                  "selector": "div:nth-child(1)>div:nth-child(1)>p:nth-child(1)>a:nth-child(1)"
-                },
-                {
-                  "name": "posterImage",
-                  "selector": "div:nth-child(1)>div:nth-child(1)>picture:nth-child(2)>img:nth-child(3)[src]"
-                }
-              ]
+              "columns": 2
             }
           }
         },
         {
-          "title": "Blog Tiles",
-          "id": "blog-tiles",
+          "title": "Commerce Addresses",
+          "id": "commerce-addresses",
+          "model": "commerce-addresses",
           "plugins": {
             "da": {
-              "unsafeHTML": "<div class=\"blog-tiles\"><div><div><p>Category</p></div></div></div>"
+              "type": "key-value-block"
             }
           }
         },
         {
-          "title": "Blog Post",
-          "id": "blog-post",
+          "title": "Commerce Cart",
+          "id": "commerce-cart",
+          "model": "commerce-cart",
           "plugins": {
             "da": {
-              "unsafeHTML": "<div class=\"blog-post\"><div><div><p>Layout</p></div></div></div>"
+              "type": "key-value-block"
             }
           }
         },
         {
-          "title": "Circle Carousel",
-          "id": "circle-carousel",
+          "title": "Commerce Checkout Success",
+          "id": "commerce-checkout-success",
+          "model": "commerce-checkout-success",
           "plugins": {
             "da": {
-              "unsafeHTML": "<div class=\"circle-carousel\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div><div><p></p></div></div></div>",
-              "behaviour": "columns"
-            }
-          },
-          "model": "circle-carousel",
-          "filter": "circle-carousel"
-        },
-        {
-          "title": "Circle Carousel Item",
-          "id": "circle-carousel-item",
-          "plugins": {
-            "da": {
-              "unsafeHTML": "<div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div><div><p></p></div></div>",
-              "behaviour": "columns-row"
+              "rows": 1,
+              "columns": 2
             }
           }
         },
         {
-          "title": "Circle Carousel Cell",
-          "id": "circle-carousel-cell",
+          "title": "Commerce Checkout",
+          "id": "commerce-checkout",
+          "model": "commerce-checkout",
           "plugins": {
             "da": {
-              "unsafeHTML": "<div></div>",
-              "behaviour": "columns-cell"
+              "rows": 1,
+              "columns": 2
             }
           }
         },
         {
-          "title": "Hero CTA",
-          "id": "hero-cta",
+          "title": "Commerce Confirm Account",
+          "id": "commerce-confirm-account",
+          "model": "commerce-confirm-account",
           "plugins": {
             "da": {
-              "unsafeHTML": "<div class=\"hero-cta\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div><div><h1></h1><p></p></div></div></div>"
+              "rows": 1,
+              "columns": 2
             }
           }
         },
         {
-          "title": "Newsletter",
-          "id": "newsletter",
+          "title": "Commerce Create Account",
+          "id": "commerce-create-account",
+          "model": "commerce-create-account",
           "plugins": {
             "da": {
-              "unsafeHTML": "<div class=\"newsletter\"><div><div><p>Heading</p></div></div><div><div><p>Subheading</p></div></div></div>"
-            }
-          },
-          "model": "newsletter"
-        },
-        {
-          "title": "Promotional Hero",
-          "id": "promotional-hero",
-          "plugins": {
-            "da": {
-              "unsafeHTML": "<div class=\"promotional-hero\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture></div><div><h2></h2><p></p></div><div><p></p></div></div></div>"
+              "rows": 1,
+              "columns": 2
             }
           }
         },
         {
-          "title": "Search Bar",
-          "id": "search-bar",
+          "title": "Commerce Create Password",
+          "id": "commerce-create-password",
+          "model": "commerce-create-password",
           "plugins": {
             "da": {
-              "unsafeHTML": "<div class=\"search-bar\"><div><div><p>Search Products</p></div></div></div>",
-              "behaviour": "columns"
-            }
-          },
-          "model": "search-bar",
-          "filter": "search-bar"
-        },
-        {
-          "title": "Store Locator",
-          "id": "store-locator",
-          "plugins": {
-            "da": {
-              "unsafeHTML": "<div class=\"store-locator\"><div><div><p>Store Name</p></div><div><p>Address</p></div><div><p>City</p></div><div><p>State</p></div><div><p>Zip</p></div><div><p>Phone</p></div></div></div>",
-              "behaviour": "columns"
-            }
-          },
-          "model": "store-locator",
-          "filter": "store-locator"
-        },
-        {
-          "title": "Store Locator Item",
-          "id": "store-locator-item",
-          "plugins": {
-            "da": {
-              "unsafeHTML": "<div><div><p>Store Name</p></div><div><p>Address</p></div><div><p>City</p></div><div><p>State</p></div><div><p>Zip</p></div><div><p>Phone</p></div></div>",
-              "behaviour": "columns-row"
+              "rows": 1,
+              "columns": 2
             }
           }
         },
         {
-          "title": "Store Locator Cell",
-          "id": "store-locator-cell",
+          "title": "Commerce Create Return",
+          "id": "commerce-create-return",
+          "model": "commerce-create-return",
           "plugins": {
             "da": {
-              "unsafeHTML": "<div></div>",
-              "behaviour": "columns-cell"
+              "rows": 1,
+              "columns": 2
             }
           }
         },
         {
-          "title": "Top Banner",
-          "id": "top-banner",
+          "title": "Commerce Customer Details",
+          "id": "commerce-customer-details",
+          "model": "commerce-customer-details",
           "plugins": {
             "da": {
-              "unsafeHTML": "<div class=\"top-banner\"><div><div><p>Message</p></div><div><p></p></div><div><p></p></div><div><p></p></div></div></div>"
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Commerce Customer Information",
+          "id": "commerce-customer-information",
+          "model": "commerce-customer-information",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Commerce Forgot Password",
+          "id": "commerce-forgot-password",
+          "model": "commerce-forgot-password",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Commerce Gift Options",
+          "id": "commerce-gift-options",
+          "model": "commerce-gift-options",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Commerce Login",
+          "id": "commerce-login",
+          "model": "commerce-login",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Commerce Mini Cart",
+          "id": "commerce-mini-cart",
+          "model": "commerce-mini-cart",
+          "plugins": {
+            "da": {
+              "type": "key-value-block"
+            }
+          }
+        },
+        {
+          "title": "Commerce Order Cost Summary",
+          "id": "commerce-order-cost-summary",
+          "model": "commerce-order-cost-summary",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Commerce Order Header",
+          "id": "commerce-order-header",
+          "model": "commerce-order-header",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Commerce Order Product List",
+          "id": "commerce-order-product-list",
+          "model": "commerce-order-product-list",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Commerce Order Returns",
+          "id": "commerce-order-returns",
+          "model": "commerce-order-returns",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Commerce Order Status",
+          "id": "commerce-order-status",
+          "model": "commerce-order-status",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Commerce Orders List",
+          "id": "commerce-orders-list",
+          "model": "commerce-orders-list",
+          "plugins": {
+            "da": {
+              "type": "key-value-block"
+            }
+          }
+        },
+        {
+          "title": "Commerce Return Header",
+          "id": "commerce-return-header",
+          "model": "commerce-return-header",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Commerce Returns List",
+          "id": "commerce-returns-list",
+          "model": "commerce-returns-list",
+          "plugins": {
+            "da": {
+              "type": "key-value-block"
+            }
+          }
+        },
+        {
+          "title": "Commerce Search Order",
+          "id": "commerce-search-order",
+          "model": "commerce-search-order",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Commerce Shipping Status",
+          "id": "commerce-shipping-status",
+          "model": "commerce-shipping-status",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Commerce Wishlist",
+          "id": "commerce-wishlist",
+          "model": "commerce-wishlist",
+          "plugins": {
+            "da": {
+              "type": "key-value-block"
             }
           }
         }
@@ -537,16 +580,6 @@
           "title": "Product Recommendations",
           "id": "product-recommendations",
           "model": "product-recommendations",
-          "plugins": {
-            "da": {
-              "type": "key-value-block"
-            }
-          }
-        },
-        {
-          "title": "Product Teaser",
-          "id": "product-teaser",
-          "model": "product-teaser",
           "plugins": {
             "da": {
               "type": "key-value-block"

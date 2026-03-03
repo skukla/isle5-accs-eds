@@ -13,14 +13,10 @@
 /* stylelint-disable no-empty-source */
 :root, .dropin-design {
   /* Adobe Commerce Dropin design tokens */
-  --main-color-accent: #8821f4;
   --color-brand-300: #6d6d6d;
   --color-brand-500: #454545;
   --color-brand-600: #383838;
   --color-brand-700: #2b2b2b;
-  --color-brand-800: #1e1e1e;
-  --color-brand-900: #111;
-  --color-brand-1000: #000;
   --color-neutral-50: #fff;
   --color-neutral-100: #fafafa;
   --color-neutral-200: #f5f5f5;
@@ -280,13 +276,14 @@ button {
 /* links */
 a:not(.dropin-design a) {
   color: var(--color-brand-500);
+  font: var(--type-body-1-strong-font);
   letter-spacing: var(--type-body-1-strong-letter-spacing);
   text-decoration: none;
   overflow-wrap: break-word;
 }
 
 a:not(.dropin-design a):hover {
-  color: var(--color-brand-1000);
+  color: var(--color-brand-600);
   text-decoration: underline;
 }
 
@@ -371,8 +368,8 @@ main img {
 
 .icon {
   display: inline-block;
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 2.4rem;
+  width: 2.4rem;
 }
 
 .icon img {
@@ -382,7 +379,7 @@ main img {
 
 /* sections */
 main > .section {
-  margin: var(--spacing-xxlarge) 0;
+  margin: var(--spacing-xbig) 0;
 }
 
 .section:empty {
@@ -410,83 +407,84 @@ main .section.light,
 main .section.highlight {
   background-color: var(--color-neutral-100);
   margin: 0;
-  padding: var(--spacing-xxsmall) 0;
-}
-
-main .section[data-padding="small"] {
-  padding: var(--spacing-xsmall) 0;
-}
-
-main .section[data-padding="medium"] {
-  padding: var(--spacing-small) 0;
-}
-
-main .section[data-padding="large"] {
-  padding: var(--spacing-medium) 0;
-}
-
-main .section[data-padding="big"] {
-  padding: var(--spacing-big) 0;
-}
-
-main .section[data-padding="xbig"] {
   padding: var(--spacing-xbig) 0;
 }
 
+main .section[data-padding="default"] {
+    padding: var(--spacing-xxsmall) 0;
+}
+
+main .section[data-padding="small"] {
+    padding: var(--spacing-xsmall) 0;
+}
+
+main .section[data-padding="medium"] {
+    padding: var(--spacing-small) 0;
+}
+
+main .section[data-padding="large"] {
+    padding: var(--spacing-medium) 0;
+}
+
+main .section[data-padding="big"] {
+    padding: var(--spacing-big) 0;
+}
+
+main .section[data-padding="xbig"] {
+    padding: var(--spacing-xbig) 0;
+}
+
 main .section[data-padding="xxbig"] {
-  padding: var(--spacing-xxbig) 0;
+    padding: var(--spacing-xxbig) 0;
 }
 
 main .section[data-padding="huge"] {
-  padding: var(--spacing-huge) 0;
+    padding: var(--spacing-huge) 0;
 }
 
 main .section[data-padding="xhuge"] {
-  padding: var(--spacing-xhuge) 0;
+    padding: var(--spacing-xhuge) 0;
 }
 
 main .section[data-padding="xxhuge"] {
-  padding: var(--spacing-xxhuge) 0;
+    padding: var(--spacing-xxhuge) 0;
 }
 
-main .section[data-padding="default"] {
-  padding: var(--spacing-xxsmall) 0;
-}
 
 main .section[data-margin="small"] {
-  margin: var(--spacing-xsmall) 0;
+    margin: var(--spacing-xsmall) 0;
 }
 
 main .section[data-margin="medium"] {
-  margin: var(--spacing-small) 0;
+    margin: var(--spacing-small) 0;
 }
 
 main .section[data-margin="large"] {
-  margin: var(--spacing-medium) 0;
+    margin: var(--spacing-medium) 0;
 }
 
 main .section[data-margin="big"] {
-  margin: var(--spacing-big) 0;
+    margin: var(--spacing-big) 0;
 }
 
 main .section[data-margin="xbig"] {
-  margin: var(--spacing-xbig) 0;
+    margin: var(--spacing-xbig) 0;
 }
 
 main .section[data-margin="xxbig"] {
-  margin: var(--spacing-xxbig) 0;
+    margin: var(--spacing-xxbig) 0;
 }
 
 main .section[data-margin="huge"] {
-  margin: var(--spacing-huge) 0;
+    margin: var(--spacing-huge) 0;
 }
 
 main .section[data-margin="xhuge"] {
-  margin: var(--spacing-xhuge) 0;
+    margin: var(--spacing-xhuge) 0;
 }
 
 main .section[data-margin="xxhuge"] {
-  margin: var(--spacing-xxhuge) 0;
+    margin: var(--spacing-xxhuge) 0;
 }
 
 /* section metadata - styles - end */

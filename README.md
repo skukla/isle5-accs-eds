@@ -1,23 +1,6 @@
-# Edge Delivery Services + Adobe Commerce Boilerplate + Citisignal UI/UX
+# Edge Delivery Services + Adobe Commerce Boilerplate
 
-- This project boilerplate is for Edge Delivery Services projects that integrate with Adobe Commerce. 
-- It has instrumentation for supporting both universal editor as well as Document authoring
-
-- Blocks available:
-  - Accordion 
-  -  Cards
-  -  Carousel
-  - Columns
-  - Fragment
-  - Hero
-  - Product Recommendations
-  - Product Teaser
-  - Quote
-  - Search
-  - Tabs
-  - Video
-  - Text
-  - Image
+This project boilerplate is for Edge Delivery Services projects that integrate with Adobe Commerce.
 
 ## Documentation
 
