@@ -12,6 +12,49 @@ Typical files:
 Use official Adobe Commerce Storefront documentation as source of truth:
 - https://experienceleague.adobe.com/developer/commerce/storefront/get-started/
 
+## Scope and File Naming
+
+- `AGENTS.md` is the canonical machine-readable instruction file name for coding agents.
+- This file intentionally governs **Commerce block work** first. It is not a generic repo style guide.
+- If you want stricter path scoping, keep this root file as a short policy and place block-specific extensions in `blocks/AGENTS.md`.
+- If root-level guidance and nested guidance conflict, prefer the more specific path-scoped guidance.
+
+## Normative Language
+
+- **MUST** / **REQUIRED** / **MANDATORY**: non-negotiable.
+- **SHOULD** / **RECOMMENDED**: default behavior unless a documented exception exists.
+- **MAY** / **OPTIONAL**: situational.
+
+## Rule Priority (highest to lowest)
+
+1. Security and data safety
+2. Accessibility and semantic correctness
+3. Runtime performance and loading-phase correctness
+4. Metadata contract correctness and authoring predictability
+5. Maintainability and documentation completeness
+6. Visual/style preferences
+
+## Applicability Matrix
+
+| Change type | Apply full file? | Minimum expectation |
+|---|---|---|
+| New block creation | Yes | Full compliance, README + `_block-name.json`, lint and geometry gates |
+| Major first-pass architecture rewrite | Yes | Full compliance for rewritten surfaces, remove stale legacy behavior |
+| Micro-fix in existing block | No (unless requested) | Keep fix scoped, preserve existing contracts, avoid opportunistic rewrites |
+| Security/accessibility defect | Yes for relevant sections | Enforce mandatory sections even in micro-fixes |
+
+## Fast Path Checklist
+
+Use this short sequence before reading the full detail:
+1. Confirm change type from the Applicability Matrix.
+2. Validate metadata ownership and naming (`<blockprefix>-<field>`).
+3. Implement precedence tiers in code, then mirror exactly in README.
+4. Enforce URL and HTML injection safety.
+5. Verify Eager/Lazy/Delayed placement and LCP image behavior.
+6. Run `npm run lint:js` and `npm run lint:css` (or `npm run lint`).
+7. Validate geometry across required widths.
+8. Ensure `_block-name.json`, README, and implementation match.
+
 ## Required Block Structure
 
 Block JS and CSS are loaded by the EDS pipeline from `blocks/<blockName>/<blockName>.js` and `blocks/<blockName>/<blockName>.css` (see `loadBlock` in `scripts/aem.js`). Auto-blocks (e.g. fragments) are built in `buildAutoBlocks` in `scripts/scripts.js`.
@@ -142,6 +185,8 @@ Example key resolution for author key `herocta-align` (in JS use camelCase):
 
 Do not use inline `||` chaining for config reads; always use a `getConfigValue` helper
 so key resolution order is explicit and testable.
+- Prefer one shared helper signature across blocks to reduce drift. If a shared utility is unavailable,
+  use the same local helper signature shown above.
 
 ### Normalize and persist
 
@@ -515,6 +560,7 @@ For block creation and first-pass docs, README must include a **Metadata Precede
 - A concise **Override Rules** table (condition, winner, ignored/no-op fields, user-visible effect).
 - A **Conflict/No-op Notes** section for common invalid or non-effective combinations.
 - A **Conflict Matrix** for mutually exclusive options (condition, winner, ignored/no-op, effect).
+- Keep tier names and order identical to the **Metadata precedence contract** section above; do not rename tiers in README.
 
 For very simple blocks (one or two metadata keys, no real precedence), a short note that precedence is N/A or a single sentence may suffice.
 
@@ -639,12 +685,22 @@ When removing a custom block or capability, remove all implementation surfaces:
   - canonical replacement
   - sunset/removal plan
 
+## Exceptions Process (required)
+
+- If a required rule cannot be followed, document a short exception note in the PR/commit:
+  - rule being waived
+  - reason
+  - risk
+  - mitigation and follow-up owner
+- Exceptions must be explicit. Silent deviations are not allowed.
+
 ## Responsive Geometry Gate
 
 - Validate layout geometry across representative widths before shipping.
 - Minimum sweep: `360, 390, 414, 480, 768, 1024, 1280, 1440, 1920` (or the project's defined viewport list if one exists).
 - Treat hard geometry leak > `2px` as a defect (card/panel/button overflow or clipping).
 - Separate true geometry failures from visual-only effects (e.g., box-shadow overflow).
+- If no automated viewport test exists for a block, record the manual sweep widths and outcomes in PR notes.
 
 ## Linting and Quality Gates
 
