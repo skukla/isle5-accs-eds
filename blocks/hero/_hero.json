@@ -9,10 +9,20 @@
           "rows": 1,
           "columns": 1,
           "fields": [
-            { "name": "image", "selector": "div>div>picture>img[src]" },
-            { "name": "alt", "selector": "div>div>picture>img[alt]" },
-            { "name": "text", "selector": "div>div>h1" }
-          ]
+            {
+              "name": "image",
+              "selector": "div>div>picture>img[src]"
+            },
+            {
+              "name": "alt",
+              "selector": "div>div>picture>img[alt]"
+            },
+            {
+              "name": "text",
+              "selector": "div>div>h1"
+            }
+          ],
+          "unsafeHTML": "<div class=\"hero\"><div><div><picture><img src=\"/content/dam/demo/placeholder.png\" alt=\"Hero image\"></picture></div><div><h1>Hero Heading</h1><p>Hero description text.</p></div></div></div>"
         }
       }
     }

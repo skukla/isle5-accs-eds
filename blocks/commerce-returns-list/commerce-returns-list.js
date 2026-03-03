@@ -1,6 +1,6 @@
 import { render as orderRenderer } from '@dropins/storefront-order/render.js';
 import ReturnsList from '@dropins/storefront-order/containers/ReturnsList.js';
-import { tryRenderAemAssetsImage } from '@dropins/tools/lib/aem/assets.js';
+import { tryRenderAemAssetsImage } from '../../scripts/aem-assets.js';
 import { readBlockConfig } from '../../scripts/aem.js';
 import {
   CUSTOMER_LOGIN_PATH,
