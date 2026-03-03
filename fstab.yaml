@@ -1,0 +1,4 @@
+mountpoints:
+  /:
+    url: https://content.da.live/skukla/isle5-accs-eds/
+    type: markup
