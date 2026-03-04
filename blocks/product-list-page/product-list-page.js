@@ -48,10 +48,9 @@ export default async function decorate(block) {
   block.innerHTML = '';
   block.appendChild(fragment);
 
-  // Add url path back to the block for enrichment, incase enrichment block is
-  // executed after the plp block and block config is not available
+  // Add category url path to block for enrichment
   if (config.urlpath) {
-    block.dataset.urlpath = config.urlpath;
+    block.dataset.category = config.urlpath;
   }
 
   // Get variables from the URL

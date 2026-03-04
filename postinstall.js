@@ -37,8 +37,14 @@ fs.readdirSync('node_modules/@dropins', { withFileTypes: true }).forEach((file) 
   { from: '@adobe/magento-storefront-events-sdk/dist/index.js', to: 'commerce-events-sdk.js' },
   { from: '@adobe/adobe-client-data-layer/dist/adobe-client-data-layer.min.js', to: 'acdl/adobe-client-data-layer.min.js' },
   { from: '@adobe/adobe-client-data-layer/dist/adobe-client-data-layer.min.js.map', to: 'acdl/adobe-client-data-layer.min.js.map' },
+  { from: '@demo-inspector/sdk/src/index.js', to: 'demo-inspector-sdk/index.js' },
+  { from: '@demo-inspector/sdk/src/mesh.js', to: 'demo-inspector-sdk/mesh.js' },
+  { from: '@demo-inspector/sdk/src/eds.js', to: 'demo-inspector-sdk/eds.js' },
+  { from: '@demo-inspector/sdk/src/tracking.js', to: 'demo-inspector-sdk/tracking.js' },
 ].forEach((file) => {
-  fs.copyFileSync(path.resolve(__dirname, 'node_modules', file.from), path.resolve(__dirname, 'scripts', file.to));
+  const dest = path.resolve(__dirname, 'scripts', file.to);
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  fs.copyFileSync(path.resolve(__dirname, 'node_modules', file.from), dest);
 });
 
 function checkPackageLockForArtifactory() {
