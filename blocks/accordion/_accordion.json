@@ -9,7 +9,8 @@
         "da": {
           "name": "accordion",
           "rows": 1,
-          "columns": 2
+          "columns": 2,
+          "unsafeHTML": "<div class=\"accordion\"><div><div><h3>FAQ Question</h3></div><div><p>Answer content goes here.</p></div></div><div><div><h3>Another Question</h3></div><div><p>More details here.</p></div></div></div>"
         }
       }
     },
@@ -23,8 +24,14 @@
           "rows": 2,
           "columns": 0,
           "fields": [
-            { "name": "summary", "selector": "div:nth-child(1)" },
-            { "name": "text", "selector": "div:nth-child(2)" }
+            {
+              "name": "summary",
+              "selector": "div:nth-child(1)"
+            },
+            {
+              "name": "text",
+              "selector": "div:nth-child(2)"
+            }
           ]
         }
       }
