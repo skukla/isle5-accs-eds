@@ -26,12 +26,7 @@
       "promotional-hero",
       "search-bar",
       "store-locator",
-      "top-banner",
-      "hero-v2",
-      "product-teaser",
-      "quote",
-      "tabs",
-      "video"
+      "top-banner"
     ]
   },
   {
@@ -104,12 +99,6 @@
     "id": "store-locator-cell",
     "components": [
       "text"
-    ]
-  },
-  {
-    "id": "tabs",
-    "components": [
-      "tabs-item"
     ]
   }
 ]
