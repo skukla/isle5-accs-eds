@@ -8,7 +8,7 @@
 }
 
 .accordion details p {
-    margin: 1em;
+    margin-bottom: 0.8em;
 }
 
 .accordion details summary {
@@ -19,18 +19,15 @@
     list-style: none;
     overflow: auto;
     transition: background-color 0.2s;
-    background-color:var(--color-brand-1000);
-    color: var(--color-neutral-50);
 }
 
 .accordion details[open] summary {
-    background-color: var(--color-neutral-500);
-    color: var(--color-brand-1000);
+    background-color: var(--light-color);
 }
 
+.accordion details summary:focus,
 .accordion details summary:hover {
-    background-color: var(--color-neutral-500);
-    color: var(--color-brand-1000);
+    background-color: var(--light-color);
 }
 
 .accordion details summary::-webkit-details-marker {

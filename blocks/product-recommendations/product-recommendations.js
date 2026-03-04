@@ -4,6 +4,7 @@ import { getConfigValue } from '@dropins/tools/lib/aem/configs.js';
 
 // Dropin Components
 import { Button, Icon, provider as UI } from '@dropins/tools/components.js';
+import { tryRenderAemAssetsImage } from '@dropins/tools/lib/aem/assets.js';
 
 // Cart Dropin
 import * as cartApi from '@dropins/storefront-cart/api.js';
@@ -16,7 +17,6 @@ import { publishRecsItemAddToCartClick } from '@dropins/storefront-recommendatio
 // Wishlist Dropin
 import { WishlistToggle } from '@dropins/storefront-wishlist/containers/WishlistToggle.js';
 import { render as wishlistRender } from '@dropins/storefront-wishlist/render.js';
-import { tryRenderAemAssetsImage } from '../../scripts/aem-assets.js';
 
 // Block-level
 import { readBlockConfig } from '../../scripts/aem.js';

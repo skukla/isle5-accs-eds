@@ -8,8 +8,7 @@
       "plugins": {
         "da": {
           "rows": 1,
-          "columns": 2,
-          "unsafeHTML": "<div class=\"cards\"><div><div><picture><img src=\"/content/dam/demo/placeholder.png\" alt=\"Card image\"></picture></div><div><h3>Card Title</h3><p>Card description text.</p></div></div></div>"
+          "columns": 2
         }
       }
     },
@@ -22,18 +21,9 @@
           "rows": 1,
           "columns": 2,
           "fields": [
-            {
-              "name": "image",
-              "selector": "div:nth-child(1)>picture>img[src]"
-            },
-            {
-              "name": "imageAlt",
-              "selector": "div:nth-child(1)>picture>img[alt]"
-            },
-            {
-              "name": "text",
-              "selector": "div:nth-child(2)"
-            }
+            { "name": "image", "selector": "div:nth-child(1)>picture>img[src]" },
+            { "name": "imageAlt", "selector": "div:nth-child(1)>picture>img[alt]" },
+            { "name": "text", "selector": "div:nth-child(2)" }
           ]
         }
       }
