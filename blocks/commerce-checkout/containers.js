@@ -50,15 +50,15 @@ import {
 } from '@dropins/tools/components.js';
 import { events } from '@dropins/tools/event-bus.js';
 import { debounce } from '@dropins/tools/lib.js';
-import { tryRenderAemAssetsImage } from '@dropins/tools/lib/aem/assets.js';
-
-// Checkout Dropin Libs
 import {
   estimateShippingCost,
   setAddressOnCart,
   getCartAddress,
   transformCartAddressToFormValues,
 } from '@dropins/storefront-checkout/lib/utils.js';
+import { tryRenderAemAssetsImage } from '../../scripts/aem-assets.js';
+
+// Checkout Dropin Libs
 
 import { showModal, swatchImageSlot } from './utils.js';
 

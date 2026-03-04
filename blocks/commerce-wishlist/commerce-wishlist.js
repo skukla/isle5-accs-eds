@@ -5,7 +5,7 @@ import { render as authRenderer } from '@dropins/storefront-auth/render.js';
 import { AuthCombine } from '@dropins/storefront-auth/containers/AuthCombine.js';
 import { events } from '@dropins/tools/event-bus.js';
 import Wishlist from '@dropins/storefront-wishlist/containers/Wishlist.js';
-import { tryRenderAemAssetsImage } from '@dropins/tools/lib/aem/assets.js';
+import { tryRenderAemAssetsImage } from '../../scripts/aem-assets.js';
 import { CS_FETCH_GRAPHQL, rootLink, getProductLink } from '../../scripts/commerce.js';
 import { readBlockConfig } from '../../scripts/aem.js';
 

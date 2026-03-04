@@ -10,7 +10,8 @@
           "name": "columns",
           "rows": 1,
           "columns": 2,
-          "behaviour": "columns"
+          "behaviour": "columns",
+          "unsafeHTML": "<div class=\"columns\"><div><div><p>Column 1 content</p></div><div><p>Column 2 content</p></div></div></div>"
         }
       }
     },
@@ -33,7 +34,6 @@
       "filter": "columns-cell",
       "plugins": {
         "da": {
-          "unsafeHTML": "<div></div>",
           "behaviour": "columns-cell"
         }
       }

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import { ProgressSpinner, provider as UI } from '@dropins/tools/components.js';
-import { tryRenderAemAssetsImage } from '@dropins/tools/lib/aem/assets.js';
+import { tryRenderAemAssetsImage } from '../../scripts/aem-assets.js';
 import { ORDER_DETAILS_PATH, rootLink } from '../../scripts/commerce.js';
 import { getUserTokenCookie } from '../../scripts/initializers/index.js';
 import createModal from '../modal/modal.js';
