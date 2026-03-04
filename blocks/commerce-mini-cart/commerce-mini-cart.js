@@ -1,6 +1,7 @@
 import { render as provider } from '@dropins/storefront-cart/render.js';
 import MiniCart from '@dropins/storefront-cart/containers/MiniCart.js';
 import { events } from '@dropins/tools/event-bus.js';
+import { tryRenderAemAssetsImage } from '@dropins/tools/lib/aem/assets.js';
 import {
   InLineAlert,
   Icon,
@@ -8,7 +9,6 @@ import {
   Button,
 } from '@dropins/tools/components.js';
 import { h } from '@dropins/tools/preact.js';
-import { tryRenderAemAssetsImage } from '../../scripts/aem-assets.js';
 
 import createModal from '../modal/modal.js';
 import createMiniPDP from '../../scripts/components/commerce-mini-pdp/commerce-mini-pdp.js';

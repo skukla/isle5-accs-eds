@@ -11,9 +11,9 @@ import { WishlistToggle } from '@dropins/storefront-wishlist/containers/Wishlist
 import { render as wishlistRender } from '@dropins/storefront-wishlist/render.js';
 // Cart Dropin
 import * as cartApi from '@dropins/storefront-cart/api.js';
-import { events } from '@dropins/tools/event-bus.js';
-import { tryRenderAemAssetsImage } from '../../scripts/aem-assets.js';
+import { tryRenderAemAssetsImage } from '@dropins/tools/lib/aem/assets.js';
 // Event Bus
+import { events } from '@dropins/tools/event-bus.js';
 // AEM
 import { readBlockConfig } from '../../scripts/aem.js';
 import { fetchPlaceholders, getProductLink } from '../../scripts/commerce.js';
@@ -48,9 +48,10 @@ export default async function decorate(block) {
   block.innerHTML = '';
   block.appendChild(fragment);
 
-  // Add category url path to block for enrichment
+  // Add url path back to the block for enrichment, incase enrichment block is
+  // executed after the plp block and block config is not available
   if (config.urlpath) {
-    block.dataset.category = config.urlpath;
+    block.dataset.urlpath = config.urlpath;
   }
 
   // Get variables from the URL
