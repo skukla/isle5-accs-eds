@@ -3,18 +3,29 @@
     {
       "title": "Accordion",
       "id": "accordion",
+      "model": "accordion",
+      "filter": "accordion",
       "plugins": {
         "da": {
-          "unsafeHTML": "<div class=\"accordion\"><div><div><p>Question</p></div><div><p>Answer</p></div></div></div>"
+          "name": "accordion",
+          "rows": 1,
+          "columns": 2
         }
       }
     },
     {
       "title": "Accordion Item",
       "id": "accordion-item",
+      "model": "accordion-item",
       "plugins": {
         "da": {
-          "unsafeHTML": "<div><div><p>Question</p></div><div><p>Answer</p></div></div>"
+          "name": "accordion-item",
+          "rows": 2,
+          "columns": 0,
+          "fields": [
+            { "name": "summary", "selector": "div:nth-child(1)" },
+            { "name": "text", "selector": "div:nth-child(2)" }
+          ]
         }
       }
     }
@@ -26,14 +37,14 @@
         {
           "component": "richtext",
           "valueType": "string",
-          "name": "div:nth-child(1)",
+          "name": "summary",
           "value": "",
           "label": "Summary",
           "required": true
         },
         {
           "component": "richtext",
-          "name": "div:nth-child(2)",
+          "name": "text",
           "value": "",
           "label": "Text",
           "valueType": "string",
