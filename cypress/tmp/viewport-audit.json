@@ -1,0 +1,614 @@
+[
+  {
+    "requestedWidth": 320,
+    "viewport": 320,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 3,
+    "offenders": [
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "BUTTON",
+        "className": "nav-search-button",
+        "text": "Search",
+        "rightLeak": 36,
+        "leftLeak": 0
+      },
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "BUTTON",
+        "className": "nav-dropdown-button",
+        "text": "",
+        "rightLeak": 92,
+        "leftLeak": 0
+      },
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 806.017, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 806.017, 0)",
+      "moving": false
+    }
+  },
+  {
+    "requestedWidth": 360,
+    "viewport": 360,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 2,
+    "offenders": [
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "BUTTON",
+        "className": "nav-dropdown-button",
+        "text": "",
+        "rightLeak": 52,
+        "leftLeak": 0
+      },
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 802.326, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 802.326, 0)",
+      "moving": false
+    }
+  },
+  {
+    "requestedWidth": 390,
+    "viewport": 390,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 2,
+    "offenders": [
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "BUTTON",
+        "className": "nav-dropdown-button",
+        "text": "",
+        "rightLeak": 22,
+        "leftLeak": 0
+      },
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 800.48, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 800.48, 0)",
+      "moving": false
+    }
+  },
+  {
+    "requestedWidth": 414,
+    "viewport": 414,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 1,
+    "offenders": [
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 801.71, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 801.71, 0)",
+      "moving": false
+    }
+  },
+  {
+    "requestedWidth": 480,
+    "viewport": 480,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 1,
+    "offenders": [
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 801.053, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 801.053, 0)",
+      "moving": false
+    }
+  },
+  {
+    "requestedWidth": 600,
+    "viewport": 600,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 1,
+    "offenders": [
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 801.71, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 801.71, 0)",
+      "moving": false
+    }
+  },
+  {
+    "requestedWidth": 768,
+    "viewport": 768,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 1,
+    "offenders": [
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 801.71, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 801.71, 0)",
+      "moving": false
+    }
+  },
+  {
+    "requestedWidth": 820,
+    "viewport": 820,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 1,
+    "offenders": [
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 801.095, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 801.095, 0)",
+      "moving": false
+    }
+  },
+  {
+    "requestedWidth": 900,
+    "viewport": 900,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 6,
+    "offenders": [
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "A",
+        "className": "button",
+        "text": "Search Order",
+        "rightLeak": 108.7,
+        "leftLeak": 0
+      },
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "BUTTON",
+        "className": "nav-wishlist-button",
+        "text": "",
+        "rightLeak": 196.7,
+        "leftLeak": 0
+      },
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "BUTTON",
+        "className": "nav-cart-button",
+        "text": "",
+        "rightLeak": 252.7,
+        "leftLeak": 0
+      },
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "BUTTON",
+        "className": "nav-search-button",
+        "text": "Search",
+        "rightLeak": 308.7,
+        "leftLeak": 0
+      },
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "BUTTON",
+        "className": "nav-dropdown-button",
+        "text": "",
+        "rightLeak": 364.7,
+        "leftLeak": 0
+      },
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 801.71, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 801.71, 0)",
+      "moving": false
+    }
+  },
+  {
+    "requestedWidth": 1024,
+    "viewport": 1024,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 5,
+    "offenders": [
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "BUTTON",
+        "className": "nav-wishlist-button",
+        "text": "",
+        "rightLeak": 72.7,
+        "leftLeak": 0
+      },
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "BUTTON",
+        "className": "nav-cart-button",
+        "text": "",
+        "rightLeak": 128.7,
+        "leftLeak": 0
+      },
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "BUTTON",
+        "className": "nav-search-button",
+        "text": "Search",
+        "rightLeak": 184.7,
+        "leftLeak": 0
+      },
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "BUTTON",
+        "className": "nav-dropdown-button",
+        "text": "",
+        "rightLeak": 240.7,
+        "leftLeak": 0
+      },
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 802.283, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 802.283, 0)",
+      "moving": false
+    }
+  },
+  {
+    "requestedWidth": 1100,
+    "viewport": 1100,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 4,
+    "offenders": [
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "BUTTON",
+        "className": "nav-cart-button",
+        "text": "",
+        "rightLeak": 52.7,
+        "leftLeak": 0
+      },
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "BUTTON",
+        "className": "nav-search-button",
+        "text": "Search",
+        "rightLeak": 108.7,
+        "leftLeak": 0
+      },
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "BUTTON",
+        "className": "nav-dropdown-button",
+        "text": "",
+        "rightLeak": 164.7,
+        "leftLeak": 0
+      },
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 801.71, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 801.71, 0)",
+      "moving": false
+    }
+  },
+  {
+    "requestedWidth": 1200,
+    "viewport": 1200,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 3,
+    "offenders": [
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "BUTTON",
+        "className": "nav-search-button",
+        "text": "Search",
+        "rightLeak": 8.7,
+        "leftLeak": 0
+      },
+      {
+        "type": "interactive-out-of-bounds",
+        "tag": "BUTTON",
+        "className": "nav-dropdown-button",
+        "text": "",
+        "rightLeak": 64.7,
+        "leftLeak": 0
+      },
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 801.095, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 801.095, 0)",
+      "moving": false
+    }
+  },
+  {
+    "requestedWidth": 1280,
+    "viewport": 1280,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 1,
+    "offenders": [
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 801.095, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 801.095, 0)",
+      "moving": false
+    }
+  },
+  {
+    "requestedWidth": 1366,
+    "viewport": 1366,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 1,
+    "offenders": [
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 802.326, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 802.326, 0)",
+      "moving": false
+    }
+  },
+  {
+    "requestedWidth": 1440,
+    "viewport": 1440,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 1,
+    "offenders": [
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 801.668, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 801.668, 0)",
+      "moving": false
+    }
+  },
+  {
+    "requestedWidth": 1536,
+    "viewport": 1536,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 1,
+    "offenders": [
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 801.71, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 801.71, 0)",
+      "moving": false
+    }
+  },
+  {
+    "requestedWidth": 1728,
+    "viewport": 1728,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 1,
+    "offenders": [
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 802.326, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 802.326, 0)",
+      "moving": false
+    }
+  },
+  {
+    "requestedWidth": 1920,
+    "viewport": 1920,
+    "rootOverflow": 0,
+    "blockInventory": [
+      "top-banner",
+      "header",
+      "search-bar",
+      "hero-cta",
+      "newsletter",
+      "promotional-hero",
+      "footer"
+    ],
+    "offenderCount": 1,
+    "offenders": [
+      {
+        "type": "ticker-not-moving",
+        "detail": "transform unchanged over 700ms"
+      }
+    ],
+    "ticker": {
+      "transformStart": "matrix(1, 0, 0, 1, 801.71, 0)",
+      "transformEnd": "matrix(1, 0, 0, 1, 801.71, 0)",
+      "moving": false
+    }
+  }
+]

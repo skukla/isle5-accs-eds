@@ -1,6 +1,51 @@
-# Edge Delivery Services + Adobe Commerce Boilerplate
+# Adobe Commerce Storefront powered by Edge Delivery - Reusable Accelerator for Solutions Consulting
 
-This project boilerplate is for Edge Delivery Services projects that integrate with Adobe Commerce.
+This repository is an Adobe Commerce storefront implementation powered by Edge Delivery Services, designed as a reusable accelerator for Solutions Consulting teams delivering scalable commerce experiences.
+
+## Who this is for
+
+This repository is built for Solutions Consulting teams delivering Adobe Commerce storefronts.
+It provides a reusable foundation to move from discovery to implementation faster, balance standardization with client-specific needs, and reduce delivery risk while maintaining consistent quality across engagements.
+
+It is built to reduce delivery time and implementation risk by combining:
+
+- DA.live-first authoring for fast content operations and business ownership,
+- reusable custom block patterns for merchandising, campaign, and conversion use cases,
+- composable drop-ins that accelerate core commerce journeys (for example cart, product, and account experiences) through packaged, maintainable integrations,
+- a clear drop-in update workflow (including dependency refresh and local sync into `scripts/__dropins__`) to keep storefront capabilities current across engagements,
+- section-metadata driven configuration to adapt layout and behavior without code changes,
+- design-token and global-style inheritance for consistent multi-brand implementations,
+- accessibility and performance guardrails suitable for enterprise storefront programs.
+
+## What's included
+
+- `blocks/` for reusable storefront blocks and their DA.live authoring contracts,
+- `scripts/__dropins__/` for locally served drop-in assets synced from dependencies,
+- `styles/` for shared/global design foundations,
+- component definitions/models/filters for controlled authoring and configuration.
+
+## Delivery model
+
+Reuse the baseline implementation patterns first, then apply client-specific branding, content structure, and integrations as focused extensions rather than rebuilding core behavior each time.
+
+## Guardrails
+
+Changes are expected to follow linting, accessibility, and performance standards to preserve quality and maintainability across consulting deliveries.
+
+## Start here
+
+Use the Site Creator workflow and the Adobe Commerce Storefront + AEM/Edge Delivery documentation referenced below to onboard quickly.
+
+## Use as a template
+
+This repository is intended to be reused as a delivery template for new implementations.
+
+Recommended approach:
+
+- create a new project from this baseline (via Site Creator or repository template/fork),
+- keep shared block and drop-in patterns as the foundation,
+- apply client-specific branding, content models, and integrations in a dedicated layer,
+- maintain upstream compatibility where possible so improvements can be reused across projects.
 
 ## Documentation
 
