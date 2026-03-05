@@ -2,13 +2,9 @@
 import { getCookie } from '@dropins/tools/lib.js';
 import { events } from '@dropins/tools/event-bus.js';
 import { initializers } from '@dropins/tools/initializer.js';
+import { getConfigValue } from '@dropins/tools/lib/aem/configs.js';
 import { isAemAssetsEnabled } from '@dropins/tools/lib/aem/assets.js';
-import { getConfigValue, getRootPath } from '@dropins/tools/lib/aem/configs.js';
 import { CORE_FETCH_GRAPHQL, CS_FETCH_GRAPHQL, fetchPlaceholders } from '../commerce.js';
-
-const DROPIN_WEBSITE_COOKIE = 'dropin_website_path';
-const getWebsitePath = () => getRootPath() || '/';
-const clearCookie = (name) => { document.cookie = `${name}=; path=/; Max-Age=0`; };
 
 export const getUserTokenCookie = () => getCookie('auth_dropin_user_token');
 
@@ -16,8 +12,12 @@ const setAuthHeaders = (state) => {
   if (state) {
     const token = getUserTokenCookie();
     CORE_FETCH_GRAPHQL.setFetchGraphQlHeader('Authorization', `Bearer ${token}`);
+    CS_FETCH_GRAPHQL.setFetchGraphQlHeader('Authorization', `Bearer ${token}`);
   } else {
+    sessionStorage.removeItem('DROPIN__COMPANYSWITCHER__COMPANY__CONTEXT');
+    sessionStorage.removeItem('DROPIN__COMPANYSWITCHER__GROUP__CONTEXT');
     CORE_FETCH_GRAPHQL.removeFetchGraphQlHeader('Authorization');
+    CS_FETCH_GRAPHQL.removeFetchGraphQlHeader('Authorization');
   }
 };
 
@@ -64,19 +64,6 @@ export default async function initializeDropins() {
       events.on('auth/group-uid', setCustomerGroupHeader, { eager: true });
     }
 
-    // Clear cart state when switching between websites to avoid stale cart IDs
-    // and authentication state from a different website causing errors.
-    const storedWebsitePath = getCookie(DROPIN_WEBSITE_COOKIE);
-    const currentWebsitePath = getWebsitePath();
-    if (storedWebsitePath && storedWebsitePath !== currentWebsitePath) {
-      clearCookie('DROPIN__CART__CART-ID');
-      sessionStorage.removeItem('DROPINS_CART_ID');
-      sessionStorage.removeItem('DROPIN__CART__CART__DATA');
-      sessionStorage.removeItem('DROPIN__CART__SHIPPING__DATA');
-      localStorage.removeItem('DROPIN__CART__CART__AUTHENTICATED');
-    }
-    document.cookie = `${DROPIN_WEBSITE_COOKIE}=${currentWebsitePath}; path=/`;
-
     // Set auth headers on authenticated event
     events.on('authenticated', setAuthHeaders, { eager: true });
 
@@ -97,8 +84,25 @@ export default async function initializeDropins() {
     // Fetch global placeholders
     await fetchPlaceholders('placeholders/global.json');
 
+    /*
+     * Set the company context before initializing the auth drop-in
+     * This ensures proper permissions are retrieved, and the auth/permissions event includes
+     * the correct payload.
+     */
+    const companyContext = sessionStorage.getItem('DROPIN__COMPANYSWITCHER__COMPANY__CONTEXT');
+    if (companyContext) {
+      CORE_FETCH_GRAPHQL.setFetchGraphQlHeader('X-Adobe-Company', companyContext);
+    }
+
     // Initialize Global Drop-ins
     await import('./auth.js');
+
+    // Initialize Company Switcher
+    const authenticated = events.lastPayload('authenticated');
+
+    if (authenticated && getConfigValue('commerce-companies-enabled') === true) {
+      await import('./company-switcher.js');
+    }
 
     await import('./personalization.js');
 

@@ -2,6 +2,7 @@
 import { events } from '@dropins/tools/event-bus.js';
 
 import { tryRenderAemAssetsImage } from '@dropins/tools/lib/aem/assets.js';
+import { getConfigValue } from '@dropins/tools/lib/aem/configs.js';
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import { fetchPlaceholders, getProductLink, rootLink } from '../../scripts/commerce.js';
@@ -533,4 +534,10 @@ export default async function decorate(block) {
     () => !isDesktop.matches && toggleMenu(nav, navSections, false),
   );
   renderAuthDropdown(navTools);
+
+  /** Company Switcher */
+  const isAuthenticated = events.lastPayload('authenticated');
+  if (isAuthenticated && getConfigValue('commerce-companies-enabled') === true) {
+    await (await import('./renderCompanySwitcher.js')).default(navTools);
+  }
 }

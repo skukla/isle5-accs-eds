@@ -34,10 +34,15 @@ import {
   rootLink,
   SUPPORT_PATH,
   authPrivacyPolicyConsentSlot,
+  CUSTOMER_LOGIN_PATH,
+  CUSTOMER_ACCOUNT_PATH,
 } from '../../scripts/commerce.js';
 
-// Ensure order drop-in initializer side effects are applied
+// Initialize dropins
 import '../../scripts/initializers/order.js';
+import '../../scripts/initializers/checkout.js';
+import '../../scripts/initializers/cart.js';
+import '../../scripts/initializers/auth.js';
 
 // Local modal helper
 import createModal from '../modal/modal.js';
@@ -134,8 +139,8 @@ async function renderOrderHeader(container, options = {}) {
     AuthProvider.render(SignUp, {
       inputsDefaultValueSet,
       addressesData,
-      routeSignIn: () => rootLink('/customer/login'),
-      routeRedirectOnEmailConfirmationClose: () => rootLink('/customer/account'),
+      routeSignIn: () => rootLink(CUSTOMER_LOGIN_PATH),
+      routeRedirectOnEmailConfirmationClose: () => rootLink(CUSTOMER_ACCOUNT_PATH),
       slots: { ...authPrivacyPolicyConsentSlot },
     })(signUpForm);
     signUpModal = await createModal([signUpForm]);

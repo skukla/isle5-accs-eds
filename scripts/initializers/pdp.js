@@ -88,8 +88,14 @@ await initializeDropin(async () => {
     return loadErrorPage();
   }
 
+  const getProductData = async (skipTransform) => {
+    const data = await fetchProductData(sku, { optionsUIDs, skipTransform })
+      .then(preloadImageMiddleware);
+    return data;
+  };
+
   const [product, labels] = await Promise.all([
-    fetchProductData(sku, { optionsUIDs, skipTransform: true }).then(preloadImageMiddleware),
+    getProductData(true),
     fetchPlaceholders('placeholders/pdp.json'),
   ]);
 

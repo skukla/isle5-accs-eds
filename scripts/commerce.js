@@ -85,9 +85,32 @@ export const CUSTOMER_LOGIN_PATH = `${CUSTOMER_PATH}/login`;
 export const CUSTOMER_ACCOUNT_PATH = `${CUSTOMER_PATH}/account`;
 export const CUSTOMER_FORGOTPASSWORD_PATH = `${CUSTOMER_PATH}/forgotpassword`;
 export const SALES_ORDER_VIEW_PATH = '/sales/order/view/';
+export const CUSTOMER_REQUISITION_LISTS_PATH = `${CUSTOMER_PATH}/requisition-lists`;
+export const CUSTOMER_REQUISITION_LIST_DETAILS_PATH = `${CUSTOMER_PATH}/requisition-list-view`;
+export const CUSTOMER_NEGOTIABLE_QUOTE_PATH = `${CUSTOMER_PATH}/negotiable-quote`;
+export const CUSTOMER_NEGOTIABLE_QUOTE_TEMPLATE_PATH = `${CUSTOMER_PATH}/negotiable-quote-template`;
 
 // TRACKING URL
 export const UPS_TRACKING_URL = 'https://www.ups.com/track';
+
+// CUSTOMER B2B PATHS
+export const CUSTOMER_PO_RULES_PATH = `${CUSTOMER_PATH}/approval-rules`;
+export const CUSTOMER_PO_RULE_FORM_PATH = `${CUSTOMER_PATH}/approval-rule`;
+export const CUSTOMER_PO_RULE_DETAILS_PATH = `${CUSTOMER_PATH}/approval-rule-details`;
+export const CUSTOMER_PO_LIST_PATH = `${CUSTOMER_PATH}/purchase-orders`;
+export const CUSTOMER_PO_DETAILS_PATH = `${CUSTOMER_PATH}/purchase-order-details`;
+
+// FILE UPLOAD
+export const ACCEPTED_FILE_TYPES = [
+  'application/msword', // .doc
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // .docx
+  'application/vnd.ms-excel', // .xls
+  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', // .xlsx
+  'application/pdf', // .pdf
+  'text/plain', // .txt
+  'image/jpeg', // .jpeg, .jpg
+  'image/png', // .png
+];
 
 /**
  * Auth Privacy Policy Consent Slot
@@ -153,7 +176,7 @@ function notifyUI(event) {
  * Detects the page type based on DOM elements
  * @returns {string} The detected page type
  */
-function detectPageType() {
+export function detectPageType() {
   if (document.body.querySelector('main .product-details')) {
     return 'Product';
   } if (document.body.querySelector('main .product-list-page')) {
@@ -162,6 +185,8 @@ function detectPageType() {
     return 'Cart';
   } if (document.body.querySelector('main .commerce-checkout')) {
     return 'Checkout';
+  } if (document.body.querySelector('main .commerce-b2b-quote-checkout')) {
+    return 'B2B Checkout';
   }
   return 'CMS';
 }
@@ -612,11 +637,15 @@ function createHashFromObject(obj, length = 5) {
 
 /**
  * Creates a commerce endpoint URL with query parameters including a cache-busting hash.
+ * @param {Object} [customHeaders] - Optional custom headers to merge into the CB Hash
  * @returns {Promise<URL>} A promise that resolves to the endpoint URL with query parameters
  */
-export async function commerceEndpointWithQueryParams() {
+export async function commerceEndpointWithQueryParams(customHeaders = {}) {
   const urlWithQueryParams = new URL(getConfigValue('commerce-endpoint'));
-  const headers = getHeaders('cs');
+  const headers = {
+    ...getHeaders('cs'),
+    ...customHeaders,
+  };
   const shortHash = createHashFromObject(headers);
   urlWithQueryParams.searchParams.append('cb', shortHash);
   return urlWithQueryParams;

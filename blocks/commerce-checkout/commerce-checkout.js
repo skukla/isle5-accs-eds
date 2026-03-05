@@ -20,17 +20,11 @@ import {
 import { PaymentMethodCode } from '@dropins/storefront-payment-services/api.js';
 
 // Block Utilities
-import {
-  buildOrderDetailsUrl,
-  displayOverlaySpinner,
-  removeOverlaySpinner,
-} from './utils.js';
+import { getConfigValue } from '@dropins/tools/lib/aem/configs.js';
+import { buildOrderDetailsUrl, displayOverlaySpinner, removeOverlaySpinner } from './utils.js';
 
 // Fragment functions
-import {
-  createCheckoutFragment,
-  selectors,
-} from './fragments.js';
+import { createCheckoutFragment, selectors } from './fragments.js';
 
 // Container functions
 import {
@@ -64,8 +58,7 @@ import {
   SHIPPING_FORM_NAME,
   TERMS_AND_CONDITIONS_FORM_NAME,
 } from './constants.js';
-
-import { rootLink } from '../../scripts/commerce.js';
+import { rootLink, CUSTOMER_PO_DETAILS_PATH, ORDER_DETAILS_PATH } from '../../scripts/commerce.js';
 
 // Initializers
 import '../../scripts/initializers/account.js';
@@ -87,6 +80,27 @@ function redirectToCartIfEmpty(cartData) {
 }
 
 export default async function decorate(block) {
+  const isB2BEnabled = getConfigValue('commerce-b2b-enabled');
+  const permissions = events.lastPayload('auth/permissions');
+
+  let b2bPoApi = null;
+  let b2bIsPoEnabled = false;
+  let b2bRenderPoSuccess = null;
+
+  if (isB2BEnabled && permissions) {
+    const [
+      { renderPOSuccess },
+      { PO_PERMISSIONS, ...b2bPurchaseOrderModule },
+    ] = await Promise.all([
+      import('../commerce-b2b-po-checkout-success/commerce-b2b-po-checkout-success.js'),
+      import('@dropins/storefront-purchase-order/api.js'),
+    ]);
+
+    b2bPoApi = b2bPurchaseOrderModule;
+    b2bIsPoEnabled = permissions[PO_PERMISSIONS.PO_ALL] !== false;
+    b2bRenderPoSuccess = renderPOSuccess;
+  }
+
   setMetaTags('Checkout');
   document.title = 'Checkout';
 
@@ -160,8 +174,14 @@ export default async function decorate(block) {
         // Submit Payment Services credit card form
         await creditCardFormRef.current.submit();
       }
-      // Place order
-      await orderApi.placeOrder(cartId);
+
+      const shouldPlacePurchaseOrder = isB2BEnabled && b2bIsPoEnabled && b2bPoApi;
+
+      if (shouldPlacePurchaseOrder) {
+        await b2bPoApi.placePurchaseOrder(cartId);
+      } else {
+        await orderApi.placeOrder(cartId);
+      }
     } catch (error) {
       console.error(error);
       throw error;
@@ -171,7 +191,7 @@ export default async function decorate(block) {
   };
 
   // First, render the place order component
-  await renderPlaceOrder($placeOrder, { handleValidation, handlePlaceOrder });
+  await renderPlaceOrder($placeOrder, { handleValidation, handlePlaceOrder, b2bIsPoEnabled });
 
   // Render the remaining containers
   const [
@@ -313,6 +333,20 @@ export default async function decorate(block) {
     await renderCheckoutSuccess(block, { orderData });
   }
 
+  async function handlePurchaseOrderPlaced(poData) {
+    // Clear address form data
+    sessionStorage.removeItem(SHIPPING_ADDRESS_DATA_KEY);
+    sessionStorage.removeItem(BILLING_ADDRESS_DATA_KEY);
+
+    const url = rootLink(`${CUSTOMER_PO_DETAILS_PATH}?poRef=${poData?.uid}`);
+
+    window.history.pushState({}, '', url);
+
+    if (b2bRenderPoSuccess) {
+      await b2bRenderPoSuccess(block, poData);
+    }
+  }
+
   events.on('authenticated', handleAuthenticated);
   events.on('checkout/initialized', handleCheckoutUpdated, { eager: true });
   events.on('checkout/updated', handleCheckoutUpdated);
@@ -320,4 +354,5 @@ export default async function decorate(block) {
   events.on('order/placed', handleOrderPlaced);
   events.on('cart/initialized', redirectToCartIfEmpty, { eager: true });
   events.on('cart/data', redirectToCartIfEmpty);
+  events.on('purchase-order/placed', handlePurchaseOrderPlaced);
 }

@@ -1,24 +1,61 @@
-# Running E2E tests
+# Pre Setup for B2B specific
+1. Created server to server auth project 
+   Note, these credentials are needed only for Admin Rest API interactions and not for Storefront graphql
+ 
+   Reference: https://developer.adobe.com/commerce/webapi/rest/authentication/ 
 
-Note - Following commands expects local server is running at <http://127.0.0.1:3000/>.
+2. Set cypress local env variable, these can be found in vault pre-fixed with LOCAL
+   ```bash
+   export CYPRESS_API_ENDPOINT=#######
+   export CYPRESS_IMS_CLIENT_ID=#######
+   export CYPRESS_IMS_ORG_ID=#######
+   export CYPRESS_IMS_CLIENT_SECRET=#######
+   ```
+   Same variables are set in Github Secret management for CI, these pre-fixed with CI in vault
+
+# Running E2E tests
 
 1. Clone the repo and change directory to `cypress`
 2. Run `npm install`
-3. Run `npm run cypress:open`
-4. Click on E2E Testing in cypress UI window.
-5. Click on Start E2E Testing on Chrome button.
-6. Now select respective test to Run from Cypress UI.
-7. To run all tests use `npm run cypress:run`
+3. Run `bash run-cypress.sh` 
+4. Select which setup you need to run - SaaS, PaaS, B2B , as per your testing needs.
+5. To run all tests use `npm run cypress:run` For This command local server needs to be running at <http://127.0.0.1:3000/>.
 
-## SaaS vs PaaS
+## Running Tests
 
-By default, the `cypress:open` and `cypress:run` commands run tests targeting the PaaS commerce environment created for the boilerplate.
+### Headless Mode (CI/CD)
+```bash
+npm run cypress:b2b:saas:run -- --spec "src/tests/b2b/yourTest.spec.js"
+```
 
-You can run tests against the SaaS environment with `cypress:saas:open` or `cypress:saas:run`.
+### Headed Mode (Debugging)
+```bash
+# Run with visible browser (helpful for debugging)
+npx cypress run --headed --browser chrome --config-file cypress.b2b.saas.config.js --spec 'src/tests/b2b/yourTest.spec.js'
+```
 
-Both sets of commands are used during the boilerplate CICD workflows to ensure that any change to the boilerplate works against either type of environment.
+### Interactive Mode
+```bash
+# Open Cypress UI
+npm run cypress:b2b:saas:open
+```
 
-Both commands use a base config, defined in `cypress.base.config.js` and extend in the corresponding config, either `cypress.paas.config.js` or `cypress.saas.config.js`. This allows us to use variables for things which differ in the environments, such as gift card codes, product option uids, etc.
+### Local Backend Requirements
+- Local server must be running at <http://127.0.0.1:3000/>
+- B2B features must be enabled in Magento configuration
+- For B2B tests, ensure Company features are activated
+
+## SaaS vs PaaS Configs
+
+All commands use a base config, defined in `cypress.base.config.js` and extend in the corresponding config,  `cypress.paas.config.js`, `cypress.saas.config.js`, `cypress.b2b.saas.config`, `cypress.b2b.paas.config` This allows us to use variables for things which differ in the environments, such as gift card codes, product option uids, etc.
+
+## Debugging Tests
+
+### Common Issues
+- **Tests timing out:** Increase wait times or check if local server is running
+- **Authentication errors:** Verify environment variables are set correctly
+- **Element not found:** Check if page is fully loaded, use `{ timeout: 10000 }` options
+- **API call failures:** Ensure backend is accessible and credentials are valid
 
 ### Skipping Tests
 
