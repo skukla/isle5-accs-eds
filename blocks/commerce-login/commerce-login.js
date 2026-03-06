@@ -2,6 +2,7 @@ import { SignIn } from '@dropins/storefront-auth/containers/SignIn.js';
 import { render as authRenderer } from '@dropins/storefront-auth/render.js';
 import {
   CUSTOMER_ACCOUNT_PATH,
+  CUSTOMER_CREATE_ACCOUNT_PATH,
   CUSTOMER_FORGOTPASSWORD_PATH,
   checkIsAuthenticated,
   rootLink,
@@ -17,6 +18,7 @@ export default async function decorate(block) {
     await authRenderer.render(SignIn, {
       routeForgotPassword: () => rootLink(CUSTOMER_FORGOTPASSWORD_PATH),
       routeRedirectOnSignIn: () => rootLink(CUSTOMER_ACCOUNT_PATH),
+      routeSignUp: () => rootLink(CUSTOMER_CREATE_ACCOUNT_PATH),
     })(block);
   }
 }
