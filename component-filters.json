@@ -13,25 +13,37 @@
       "cards",
       "carousel",
       "columns",
+      "commerce-account-header",
+      "commerce-account-sidebar",
+      "commerce-cart",
+      "commerce-checkout",
+      "commerce-checkout-success",
+      "commerce-confirm-account",
+      "commerce-create-account",
+      "commerce-create-password",
+      "commerce-create-return",
+      "commerce-customer-details",
+      "commerce-forgot-password",
+      "commerce-gift-options",
+      "commerce-login",
+      "commerce-mini-cart",
+      "commerce-order-cost-summary",
+      "commerce-order-header",
+      "commerce-order-product-list",
+      "commerce-order-returns",
+      "commerce-order-status",
+      "commerce-return-header",
+      "commerce-search-order",
+      "commerce-shipping-status",
+      "commerce-wishlist",
+      "enrichment",
       "fragment",
       "image",
-      "text",
-      "targeted-block",
+      "product-details",
+      "product-list-page",
       "product-recommendations",
-      "blog-tiles",
-      "blog-post",
-      "circle-carousel",
-      "hero-cta",
-      "newsletter",
-      "promotional-hero",
-      "search-bar",
-      "store-locator",
-      "top-banner",
-      "hero-v2",
-      "product-teaser",
-      "quote",
-      "tabs",
-      "video"
+      "targeted-block",
+      "text"
     ]
   },
   {
@@ -53,23 +65,6 @@
     ]
   },
   {
-    "id": "circle-carousel",
-    "components": [
-      "circle-carousel-item"
-    ]
-  },
-  {
-    "id": "circle-carousel-item",
-    "components": []
-  },
-  {
-    "id": "circle-carousel-cell",
-    "components": [
-      "text",
-      "image"
-    ]
-  },
-  {
     "id": "columns",
     "components": [
       "columns-row"
@@ -84,32 +79,6 @@
     "components": [
       "text",
       "image"
-    ]
-  },
-  {
-    "id": "search-bar",
-    "components": []
-  },
-  {
-    "id": "store-locator",
-    "components": [
-      "store-locator-item"
-    ]
-  },
-  {
-    "id": "store-locator-item",
-    "components": []
-  },
-  {
-    "id": "store-locator-cell",
-    "components": [
-      "text"
-    ]
-  },
-  {
-    "id": "tabs",
-    "components": [
-      "tabs-item"
     ]
   }
 ]

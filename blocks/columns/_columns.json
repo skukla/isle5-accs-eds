@@ -3,9 +3,13 @@
     {
       "title": "Columns",
       "id": "columns",
+      "model": "columns",
+      "filter": "columns",
       "plugins": {
         "da": {
-          "unsafeHTML": "<div class=\"columns\"><div><div><p></p></div><div><p></p></div></div></div>",
+          "name": "columns",
+          "rows": 1,
+          "columns": 2,
           "behaviour": "columns"
         }
       }
@@ -13,9 +17,11 @@
     {
       "title": "Columns Row",
       "id": "columns-row",
+      "model": "columns-row",
+      "filter": "columns-row",
       "plugins": {
         "da": {
-          "unsafeHTML": "<div><div><p></p></div><div><p></p></div></div>",
+          "name": "columns-row",
           "behaviour": "columns-row"
         }
       }
@@ -23,6 +29,8 @@
     {
       "title": "Columns Cell",
       "id": "columns-cell",
+      "model": "columns-cell",
+      "filter": "columns-cell",
       "plugins": {
         "da": {
           "unsafeHTML": "<div></div>",
